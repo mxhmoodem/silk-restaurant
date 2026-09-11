@@ -1,0 +1,154 @@
+/* ==========================================================================
+   SILK — Journal index
+   ========================================================================== */
+
+.blog-head__wash {
+  inset: -200px -180px auto auto;
+  left: auto;
+  bottom: auto;
+  width: 720px;
+  height: 720px;
+}
+
+.blog-head__title { margin: var(--s-4) 0 var(--s-4); }
+
+/* The chips sit directly over the rows they narrow. */
+.blog-filters { margin-bottom: var(--s-5); }
+
+/* --------------------------------------------------------------------------
+   Post metadata — one row, copper category, hairline separators
+   -------------------------------------------------------------------------- */
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3);
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.post-meta__cat {
+  padding-right: var(--s-3);
+  border-right: 1px solid var(--rule);
+  color: var(--copper-deep);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Featured post
+   -------------------------------------------------------------------------- */
+
+.featured-post {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  color: inherit;
+}
+
+.featured-post:hover { color: inherit; }
+.featured-post:hover .featured-post__media img { transform: scale(1.045); }
+
+.featured-post__media { aspect-ratio: 4 / 5; }
+
+.featured-post__title { margin: var(--s-4) 0 var(--s-4); }
+
+.featured-post .btn-text { margin-top: var(--s-5); }
+
+/* The featured post is the page's teal band — the dark break between the
+   bone header and the bone index. */
+.ground--teal .featured-post,
+.ground--teal .featured-post:hover { color: var(--bone); }
+.ground--teal .post-meta { color: var(--bone); opacity: 1; }
+.ground--teal .post-meta__cat {
+  border-right-color: var(--rule-on-teal);
+  color: var(--copper-soft);
+}
+
+@media (max-width: 900px) {
+  .featured-post { grid-template-columns: minmax(0, 1fr); }
+  .featured-post__media { aspect-ratio: 16 / 10; }
+}
+
+/* --------------------------------------------------------------------------
+   Index rows
+   -------------------------------------------------------------------------- */
+
+.post-row { border-top: 1px solid var(--rule); }
+.post-row:last-child { border-bottom: 1px solid var(--rule); }
+
+.post-row__link {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 40px;
+  gap: var(--s-5);
+  align-items: center;
+  /* The highlight runs a little past the text column without moving it. */
+  margin-inline: calc(var(--s-4) * -1);
+  padding: var(--s-5) var(--s-4);
+  color: inherit;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+/* bone-light vanished into the ground's own gradient; bone-shade and a
+   copper edge read clearly on every stop of it. */
+.post-row__link:is(:hover, :focus-visible) {
+  background: var(--bone-shade);
+  color: inherit;
+  box-shadow: inset 2px 0 0 var(--copper);
+}
+
+.post-row__media { width: 120px; }
+
+.post-row__title {
+  margin: var(--s-3) 0 var(--s-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-h3);
+  line-height: 1.2;
+  color: var(--teal);
+}
+
+.post-row__excerpt { max-width: 46rem; opacity: 0.86; }
+
+.post-row__arrow {
+  justify-self: end;
+  font-size: 1.25rem;
+  color: var(--copper);
+  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.post-row__link:is(:hover, :focus-visible) .post-row__arrow { transform: translateX(10px); color: var(--copper-deep); }
+.post-row__link:is(:hover, :focus-visible) .post-row__media img { transform: scale(1.08); }
+
+.post-row__title { transition: color var(--dur) var(--ease); }
+.post-row__link:is(:hover, :focus-visible) .post-row__title { color: var(--copper-deep); }
+
+.blog-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-top: var(--s-6);
+}
+
+.blog-foot__count {
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+@media (max-width: 700px) {
+  .post-row__link {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: var(--s-4);
+  }
+  .post-row__media { width: 84px; }
+  .post-row__arrow { display: none; }
+}

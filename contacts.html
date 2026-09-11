@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Contacts — SILK</title>
+  <meta name="description" content="Jl. Subak Canggu No. 12, Canggu, Bali. Open daily 09:00 — 01:00. Reservations, catering and directions.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contacts — SILK">
+  <meta property="og:description" content="Jl. Subak Canggu No. 12, Canggu, Bali. Open daily 09:00 — 01:00. Reservations, catering and directions.">
+  <meta property="og:image" content="assets/img/photos/hero.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/contacts.css">
+</head>
+<body data-page="contacts">
+<script src="assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html" aria-label="SILK — home">
+    <svg class="mark mark--sun nav__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+    <svg class="mark mark--word nav__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+  </a>
+
+  <button class="nav__burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a>
+      <a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a>
+      <a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a>
+      <a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a>
+      <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a>
+      <a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a>
+      <a href="contacts.html" aria-current="page"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a>
+      <div class="lang nav__lang" role="group" aria-label="Language">
+        <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+      </div>
+  </nav>
+
+  <div class="nav__aside">
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="nav__phone" href="tel:+62811000000">+62 811 000 000</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== HEADER ===================== -->
+<section class="section ground contacts-head">
+  <div class="pattern pattern--structural contacts-head__wash" aria-hidden="true"></div>
+
+  <div class="section__inner">
+    <p class="eyebrow"><span data-lang="en">Contacts &middot; SILK Canggu</span><span data-lang="ru">Контакты &middot; SILK Чангу</span></p>
+    <h1 class="hero-type contacts-head__title"><span data-lang="en">Find us, call us, <br>book the room</span><span data-lang="ru">Найдите нас, позвоните, <br>забронируйте зал</span></h1>
+  </div>
+</section>
+
+<!-- ===================== DETAILS + MAP ===================== -->
+<section class="section section--tight ground--bone">
+  <div class="section__inner contacts-grid">
+
+    <div class="contacts-cards">
+      <div class="contact-card">
+        <h2 class="contact-card__label"><span data-lang="en">Address</span><span data-lang="ru">Адрес</span></h2>
+        <p class="contact-card__value">Jl. Subak Canggu No.&nbsp;12<br>Canggu, Badung, Bali 80361</p>
+        <a class="btn-text" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener"><span data-lang="en">Directions</span><span data-lang="ru">Как добраться</span> <span aria-hidden="true">&#8599;</span></a>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-card__label"><span data-lang="en">Hours</span><span data-lang="ru">Часы работы</span></h2>
+        <dl class="hours">
+          <div><dt><span data-lang="en">Daily</span><span data-lang="ru">Ежедневно</span></dt><dd>09:00 — 01:00</dd></div>
+          <div><dt><span data-lang="en">Kitchen closes</span><span data-lang="ru">Кухня закрывается</span></dt><dd>00:30</dd></div>
+          <div><dt><span data-lang="en">Live music</span><span data-lang="ru">Живая музыка</span></dt><dd><span data-lang="en">Fridays from 20:00</span><span data-lang="ru">По пятницам с 20:00</span></dd></div>
+        </dl>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-card__label"><span data-lang="en">Phone</span><span data-lang="ru">Телефон</span></h2>
+        <p class="contact-card__value"><a href="tel:+62811000000">+62 811 000 000</a></p>
+        <p class="small contact-card__note"><span data-lang="en">Reservations and same-day tables</span><span data-lang="ru">Бронь и столики на сегодня</span></p>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-card__label"><span data-lang="en">Email</span><span data-lang="ru">Почта</span></h2>
+        <p class="contact-card__value"><a href="mailto:hello@silk.bali">hello@silk.bali</a><br><a href="mailto:events@silk.bali">events@silk.bali</a></p>
+        <p class="small contact-card__note"><span data-lang="en">Catering, press and partnerships</span><span data-lang="ru">Кейтеринг, пресса и партнёрства</span></p>
+      </div>
+
+      <div class="contact-card contact-card--wide">
+        <h2 class="contact-card__label"><span data-lang="en">Social</span><span data-lang="ru">Соцсети</span></h2>
+        <ul class="social">
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://tripadvisor.com/" rel="noopener">TripAdvisor</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <a class="contacts-map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+      <div class="pattern pattern--hairline" aria-hidden="true"></div>
+      <div class="contacts-map__pin" aria-hidden="true"></div>
+      <span class="contacts-map__label">
+        Jl. Subak Canggu No.&nbsp;12
+        <span class="btn-text"><span data-lang="en">Open in maps</span><span data-lang="ru">Открыть в картах</span> <span aria-hidden="true">&#8599;</span></span>
+      </span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===================== RESERVATION ===================== -->
+<section class="section ground--teal" id="reserve">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+
+  <div class="section__inner reserve">
+    <div class="reserve__copy">
+      <div class="section-mark">
+        <span class="section-mark__rule" aria-hidden="true"></span>
+        <span class="eyebrow"><span data-lang="en">Reservations</span><span data-lang="ru">Бронирование</span></span>
+      </div>
+      <div data-lang="en">
+        <h2 class="h1">Keep a table</h2>
+        <p class="body">Same-day bookings, call us. Groups over eight go through catering.</p>
+        <a class="reserve__phone" href="tel:+62811000000">+62 811 000 000</a>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">Забронировать столик</h2>
+        <p class="body">Бронь на сегодня — позвоните нам. Компании больше восьми человек — через кейтеринг.</p>
+        <a class="reserve__phone" href="tel:+62811000000">+62 811 000 000</a>
+      </div>
+    </div>
+
+    <form class="booking" id="booking" data-reservation novalidate>
+      <header class="booking__head">
+        <p class="eyebrow"><span data-lang="en">Table request</span><span data-lang="ru">Заявка на столик</span></p>
+        <span class="status"><span data-lang="en">Reply within the hour</span><span data-lang="ru">Ответим в течение часа</span></span>
+      </header>
+
+      <div class="booking__steps">
+        <fieldset class="booking__step" data-step="date" aria-describedby="res-err-date">
+          <legend class="booking__legend"><span class="booking__num" aria-hidden="true">1</span><span data-lang="en">Day</span><span data-lang="ru">День</span></legend>
+          <div class="booking__days" data-booking-days>
+            <div class="field">
+              <label class="visually-hidden" for="res-date"><span data-lang="en">Date</span><span data-lang="ru">Дата</span></label>
+              <input class="field__input" id="res-date" name="date" type="date" required>
+            </div>
+          </div>
+          <p class="booking__error" id="res-err-date" data-error="date" hidden><span data-lang="en">Choose a day.</span><span data-lang="ru">Выберите день.</span></p>
+        </fieldset>
+
+        <fieldset class="booking__step" data-step="time" aria-describedby="res-err-time">
+          <legend class="booking__legend"><span class="booking__num" aria-hidden="true">2</span><span data-lang="en">Time</span><span data-lang="ru">Время</span></legend>
+          <p class="booking__aside"><span data-lang="en">Bali time &middot; kitchen closes 00:30</span><span data-lang="ru">Время Бали &middot; кухня до 00:30</span></p>
+          <div class="tabs" data-booking-services>
+            <label class="tabs__tab"><input type="radio" name="service" value="breakfast"><span data-lang="en">Breakfast</span><span data-lang="ru">Завтрак</span></label>
+            <label class="tabs__tab"><input type="radio" name="service" value="lunch"><span data-lang="en">Lunch</span><span data-lang="ru">Обед</span></label>
+            <label class="tabs__tab"><input type="radio" name="service" value="dinner" checked><span data-lang="en">Dinner</span><span data-lang="ru">Ужин</span></label>
+            <label class="tabs__tab"><input type="radio" name="service" value="late"><span data-lang="en">Late</span><span data-lang="ru">Ночь</span></label>
+          </div>
+          <div class="ledger ledger--times booking__slots" data-service="breakfast">
+            <label class="ledger__cell"><input type="radio" name="time" value="09:00" required>09:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="09:30">09:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="10:00">10:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="10:30">10:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="11:00">11:00</label>
+          </div>
+          <div class="ledger ledger--times booking__slots" data-service="lunch">
+            <label class="ledger__cell"><input type="radio" name="time" value="11:30">11:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="12:00">12:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="12:30">12:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="13:00">13:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="13:30">13:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="14:00">14:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="14:30">14:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="15:00">15:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="15:30">15:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="16:00">16:00</label>
+          </div>
+          <div class="ledger ledger--times booking__slots" data-service="dinner">
+            <label class="ledger__cell"><input type="radio" name="time" value="17:00">17:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="17:30">17:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="18:00">18:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="18:30">18:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="19:00">19:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="19:30">19:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="20:00">20:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="20:30">20:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="21:00">21:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="21:30">21:30</label>
+          </div>
+          <div class="ledger ledger--times booking__slots" data-service="late">
+            <label class="ledger__cell"><input type="radio" name="time" value="22:00">22:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="22:30">22:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="23:00">23:00</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="23:30">23:30</label>
+            <label class="ledger__cell"><input type="radio" name="time" value="00:00">00:00</label>
+          </div>
+          <p class="booking__error" id="res-err-time" data-error="time" hidden><span data-lang="en">Choose a time.</span><span data-lang="ru">Выберите время.</span></p>
+        </fieldset>
+
+        <fieldset class="booking__step" data-step="guests">
+          <legend class="booking__legend"><span class="booking__num" aria-hidden="true">3</span><span data-lang="en">Guests</span><span data-lang="ru">Гости</span></legend>
+          <p class="booking__aside"><span data-lang="en">More than eight? Try</span><span data-lang="ru">Больше восьми? Через</span> <a href="index.html#catering"><span data-lang="en">catering</span><span data-lang="ru">кейтеринг</span></a></p>
+          <div class="ledger ledger--guests">
+            <label class="ledger__cell"><input type="radio" name="guests" value="1">1</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="2" checked>2</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="3">3</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="4">4</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="5">5</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="6">6</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="7">7</label>
+            <label class="ledger__cell"><input type="radio" name="guests" value="8">8</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="booking__step" data-step="details">
+          <legend class="booking__legend"><span class="booking__num" aria-hidden="true">4</span><span data-lang="en">Your details</span><span data-lang="ru">Ваши данные</span></legend>
+          <div class="booking__fields">
+            <div class="field">
+              <label class="field__label" for="res-name"><span data-lang="en">Name</span><span data-lang="ru">Имя</span></label>
+              <input class="field__input" id="res-name" name="name" type="text" autocomplete="name" required aria-describedby="res-err-name">
+              <p class="booking__error" id="res-err-name" data-error="name" hidden><span data-lang="en">Tell us your name.</span><span data-lang="ru">Укажите имя.</span></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="res-phone"><span data-lang="en">Phone / WhatsApp</span><span data-lang="ru">Телефон / WhatsApp</span></label>
+              <input class="field__input" id="res-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="res-err-phone">
+              <p class="booking__error" id="res-err-phone" data-error="phone" hidden><span data-lang="en">A number we can reach on WhatsApp.</span><span data-lang="ru">Номер, на который можно написать в WhatsApp.</span></p>
+            </div>
+            <div class="field booking__wide">
+              <label class="field__label" for="res-note"><span data-lang="en">Note (optional)</span><span data-lang="ru">Пожелания (необязательно)</span></label>
+              <textarea class="field__textarea" id="res-note" name="note" rows="2" data-ph-en="Birthday, high chair, a quiet corner&hellip;" data-ph-ru="День рождения, детский стул, тихий угол&hellip;"></textarea>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <footer class="booking__foot">
+        <p class="booking__ticket">
+          <span class="eyebrow"><span data-lang="en">Your table</span><span data-lang="ru">Ваш столик</span></span>
+          <span class="booking__ticket-line" data-booking-ticket aria-live="polite"></span>
+        </p>
+        <button class="btn btn--filled" type="submit"><span data-lang="en">Request table</span><span data-lang="ru">Отправить заявку</span></button>
+      </footer>
+
+      <div class="booking__done" data-booking-done tabindex="-1" role="status" hidden>
+        <svg class="mark mark--sun booking__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+        <p class="eyebrow"><span data-lang="en">Request sent</span><span data-lang="ru">Заявка отправлена</span></p>
+        <p class="h3"><span data-lang="en">Thank you<span data-booking-name></span>.</span><span data-lang="ru">Спасибо<span data-booking-name></span>.</span></p>
+        <p class="body" data-booking-recap></p>
+        <p class="small"><span data-lang="en">We confirm by WhatsApp within the hour.</span><span data-lang="ru">Подтвердим в WhatsApp в течение часа.</span></p>
+        <button class="btn-text" type="button" data-booking-again><span data-lang="en">Make another request</span><span data-lang="ru">Новая заявка</span> <span aria-hidden="true">&#8634;</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== GETTING HERE ===================== -->
+<section class="section ground">
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">Getting here</span><span data-lang="ru">Как добраться</span></p>
+    </header>
+
+    <ul class="notes-grid">
+      <li class="note-card">
+        <h3 class="h3"><span data-lang="en">From the airport</span><span data-lang="ru">Из аэропорта</span></h3>
+        <p class="body"><span data-lang="en">Around 55 minutes by car outside rush hour, closer to 90 after 16:00. We can arrange a pickup with a reservation.</span><span data-lang="ru">Около 55 минут на машине вне часа пик и ближе к 90 после 16:00. Можем организовать трансфер при брони.</span></p>
+      </li>
+      <li class="note-card">
+        <h3 class="h3"><span data-lang="en">Parking &amp; scooters</span><span data-lang="ru">Парковка и байки</span></h3>
+        <p class="body"><span data-lang="en">Free scooter parking at the entrance, valet for cars from 18:00. The lane is one-way after dark.</span><span data-lang="ru">Бесплатная парковка для байков у входа, валет для машин с 18:00. После темноты переулок односторонний.</span></p>
+      </li>
+      <li class="note-card">
+        <h3 class="h3"><span data-lang="en">Private events</span><span data-lang="ru">Частные события</span></h3>
+        <p class="body"><span data-lang="en">Whole-room buyouts for 60 and villa catering across Canggu and Pererenan.</span><span data-lang="ru">Полный выкуп зала до 60 человек и кейтеринг на виллах в Чангу и Переренане.</span></p>
+        <a class="btn-text" href="mailto:events@silk.bali"><span data-lang="en">Catering enquiry</span><span data-lang="ru">Заявка на кейтеринг</span> <span aria-hidden="true">&#8599;</span></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== LEGAL ===================== -->
+<section class="section ground--bone-shade" id="legal">
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">Legal</span><span data-lang="ru">Правовая информация</span></p>
+    </header>
+
+    <ul class="notes-grid notes-grid--two">
+      <li class="note-card">
+        <h3 class="h3"><span data-lang="en">Terms of service</span><span data-lang="ru">Условия обслуживания</span></h3>
+        <p class="body"><span data-lang="en">Reservation and cancellation rules, deposits for large groups, catering contracts and delivery terms.</span><span data-lang="ru">Правила брони и отмены, депозиты для больших компаний, договоры кейтеринга и условия доставки.</span></p>
+        <a class="btn-text" href="mailto:hello@silk.bali?subject=Terms%20of%20service"><span data-lang="en">Read the terms</span><span data-lang="ru">Читать условия</span> <span aria-hidden="true">&#8599;</span></a>
+      </li>
+      <li class="note-card">
+        <h3 class="h3"><span data-lang="en">Privacy policy</span><span data-lang="ru">Политика конфиденциальности</span></h3>
+        <p class="body"><span data-lang="en">What we store when you book, how long we keep it, and how to have it deleted. We do not sell guest data.</span><span data-lang="ru">Что мы храним при брони, как долго и как это удалить. Данные гостей мы не продаём.</span></p>
+        <a class="btn-text" href="mailto:hello@silk.bali?subject=Privacy%20policy"><span data-lang="en">Read the policy</span><span data-lang="ru">Читать политику</span> <span aria-hidden="true">&#8599;</span></a>
+      </li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__marks">
+          <svg class="mark mark--sun footer__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+          <svg class="mark mark--word footer__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <p class="footer__tag"><span data-lang="en">Silk Road kitchen, Bali</span><span data-lang="ru">Кухня шёлкового пути, Бали</span></p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Pages</span><span data-lang="ru">Страницы</span></h2>
+        <ul class="footer__list">
+          <li><a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a></li>
+          <li><a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a></li>
+          <li><a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a></li>
+          <li><a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">More</span><span data-lang="ru">Ещё</span></h2>
+        <ul class="footer__list">
+          <li><a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a></li>
+          <li><a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a></li>
+          <li><a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a></li>
+          <li><a href="docs/brand-system.html"><span data-lang="en">Brand system</span><span data-lang="ru">Бренд-система</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Hours</span><span data-lang="ru">Часы</span></h2>
+        <ul class="footer__list">
+          <li><span data-lang="en">Daily 09:00 — 01:00</span><span data-lang="ru">Ежедневно 09:00 — 01:00</span></li>
+          <li><span data-lang="en">Kitchen closes 00:30</span><span data-lang="ru">Кухня закрывается в 00:30</span></li>
+          <li><span data-lang="en">Live oud, Fridays from 20:00</span><span data-lang="ru">Живой уд, по пятницам с 20:00</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Contact</span><span data-lang="ru">Контакты</span></h2>
+        <ul class="footer__list">
+          <li><a href="tel:+62811000000">+62 811 000 000</a></li>
+          <li><a href="mailto:hello@silk.bali">hello@silk.bali</a></li>
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <a class="footer__map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+          <div class="pattern pattern--on-dark pattern--hairline" aria-hidden="true"></div>
+          <span>Jl. Subak Canggu No.&nbsp;12<br>Canggu, Bali 80361</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SILK Restaurant Group</p>
+      <div class="footer__legal">
+        <a href="contacts.html#legal"><span data-lang="en">Terms</span><span data-lang="ru">Условия</span></a>
+        <a href="contacts.html#legal"><span data-lang="en">Privacy</span><span data-lang="ru">Конфиденциальность</span></a>
+      </div>
+      <p>Canggu &middot; Bali</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="contacts.html#reserve"><span data-lang="en">Reserve</span><span data-lang="ru">Бронь</span></a>
+  <a href="tel:+62811000000"><span data-lang="en">Call</span><span data-lang="ru">Позвонить</span></a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/booking.js"></script>
+</body>
+</html>

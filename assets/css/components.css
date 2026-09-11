@@ -1,0 +1,1150 @@
+/* ==========================================================================
+   SILK — Grounds, pattern, buttons, forms, cards, media
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Grain — a single shared paper texture laid over every ground.
+   -------------------------------------------------------------------------- */
+
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   Grounds — at most two per page. Assume bone unless there is a reason.
+   -------------------------------------------------------------------------- */
+
+/* Bone grounds start and finish on the same --bone, lighter in the middle,
+   so two bone sections meet without a seam. */
+.ground {
+  position: relative;
+  background-color: var(--bone);
+  background-image: var(--grain), linear-gradient(180deg, var(--bone) 0%, var(--bone-light) 42%, var(--bone-light) 58%, var(--bone) 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--ink);
+}
+
+.ground--bone {
+  background-color: var(--bone);
+  background-image: var(--grain), linear-gradient(180deg, var(--bone) 0%, #F2ECE4 50%, var(--bone) 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--ink);
+}
+
+.ground--bone-shade {
+  background-color: var(--bone-shade);
+  background-image: var(--grain), linear-gradient(180deg, #E9E2D7 0%, #E5DDCF 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--ink);
+}
+
+/* Dark bands pool light: a lifted corner, with the ground falling away to
+   its deep shade underneath. (No copper on teal — it muddies to brown.) */
+.ground--teal {
+  background-color: var(--teal);
+  background-image:
+    var(--grain),
+    radial-gradient(90% 75% at 88% 0%, var(--teal-glow) 0%, transparent 62%),
+    linear-gradient(170deg, var(--teal) 0%, var(--teal-deep) 100%);
+  background-blend-mode: overlay, normal, normal;
+  color: var(--bone);
+}
+
+.ground--spice {
+  background-color: var(--spice);
+  background-image:
+    var(--grain),
+    radial-gradient(85% 75% at 10% 100%, var(--spice-light) 0%, transparent 64%),
+    radial-gradient(60% 60% at 100% 0%, var(--copper-haze) 0%, transparent 70%),
+    linear-gradient(165deg, var(--spice) 0%, var(--spice-deep) 100%);
+  background-blend-mode: overlay, normal, normal, normal;
+  color: var(--silk-sand);
+}
+
+/* A closing band: bone warmed toward silk sand. For the last call to action
+   on a page, where the gradient is the only ornament. */
+.ground--blush {
+  background-color: var(--bone-light);
+  background-image:
+    var(--grain),
+    radial-gradient(70% 90% at 100% 100%, var(--copper-haze) 0%, transparent 70%),
+    linear-gradient(115deg, var(--bone-light) 0%, var(--bone) 45%, var(--sand-blush) 100%);
+  background-blend-mode: overlay, normal, normal;
+  color: var(--ink);
+}
+
+.ground--teal .h1,
+.ground--teal .h2,
+.ground--teal .h3,
+.ground--teal .hero-type,
+.ground--teal .quote-type,
+.ground--teal .body,
+.ground--teal .small { color: var(--bone); }
+
+.ground--teal .eyebrow { color: var(--copper-soft); }
+.ground--teal .chapter-numeral { color: var(--copper-soft); }
+.ground--teal a { color: var(--bone); }
+.ground--teal a:hover { color: var(--copper-soft); }
+
+.ground--spice .h1,
+.ground--spice .h2,
+.ground--spice .h3,
+.ground--spice .quote-type,
+.ground--spice .body,
+.ground--spice .small { color: var(--silk-sand); }
+
+/* A solid tint rather than opacity: the reveal fades elements up to
+   opacity 1 and would otherwise snap back to 0.75 when it lets go. */
+.ground--spice .eyebrow { color: color-mix(in srgb, var(--silk-sand) 75%, var(--spice)); }
+.ground--spice .chapter-numeral { color: var(--copper-glow); }
+.ground--spice a { color: var(--silk-sand); }
+
+/* --------------------------------------------------------------------------
+   Section shell
+   -------------------------------------------------------------------------- */
+
+.section {
+  padding: var(--section-y) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--tight { padding-block: clamp(40px, 5vw, 84px); }
+.section--flush { padding-inline: 0; }
+
+.section__inner {
+  max-width: var(--max-page);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow + numeral pairing that opens most sections. */
+.section-mark {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+.section-mark__rule {
+  width: 26px;
+  height: 1px;
+  background: var(--copper);
+  align-self: center;
+}
+
+/* --------------------------------------------------------------------------
+   Pattern — the eight-point square star. Three scales only.
+   One structural field per page; everywhere else texture under 20%.
+   -------------------------------------------------------------------------- */
+
+.pattern {
+  --pattern-stroke: %23B87446;
+  --pattern-weight: 1;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23B87446' stroke-width='1'%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7'/%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: var(--pattern-field) var(--pattern-field);
+  opacity: 0.16;
+}
+
+.pattern--structural {
+  background-size: var(--pattern-structural) var(--pattern-structural);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23B87446' stroke-width='1.6'%3E%3Crect x='30.5' y='30.5' width='99' height='99'/%3E%3Crect x='30.5' y='30.5' width='99' height='99' transform='rotate(45 80 80)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.11;
+}
+
+.pattern--hairline {
+  background-size: var(--pattern-hairline) var(--pattern-hairline);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cg fill='none' stroke='%23B87446' stroke-width='0.7'%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1'/%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1' transform='rotate(45 17 17)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.16;
+}
+
+/* Bone linework, for use on teal and spice grounds. */
+.pattern--on-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23EFE9E0' stroke-width='1'%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7'/%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.14;
+}
+
+.pattern--on-spice {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23FFDACB' stroke-width='1'%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7'/%3E%3Crect x='12.2' y='12.2' width='39.7' height='39.7' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.16;
+}
+
+/* The scale modifiers must bring their own bone tile on dark grounds —
+   stretching the 64px tile to 160px would thicken the stroke to 2.5. */
+.pattern--structural.pattern--on-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23EFE9E0' stroke-width='1.6'%3E%3Crect x='30.5' y='30.5' width='99' height='99'/%3E%3Crect x='30.5' y='30.5' width='99' height='99' transform='rotate(45 80 80)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.pattern--hairline.pattern--on-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cg fill='none' stroke='%23EFE9E0' stroke-width='0.7'%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1'/%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1' transform='rotate(45 17 17)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.12;
+}
+
+/* --- Keeping the pattern off the copy ----------------------------------------
+   A field on a dark band frames the section: full strength in the gutters,
+   thinning to a trace behind the text column. Structural washes on bone are
+   soft blooms that dissolve before they reach an edge, so nothing is cut off
+   by the section below. Both overscan vertically so parallax (site.js) can
+   drift them without exposing an edge. */
+
+.ground--teal > .pattern,
+.ground--spice > .pattern {
+  inset: -120px 0;
+  -webkit-mask-image: radial-gradient(ellipse 54% 52% at 50% 50%, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.14) 50%, rgba(0, 0, 0, 0.55) 80%, #000 100%);
+          mask-image: radial-gradient(ellipse 54% 52% at 50% 50%, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.14) 50%, rgba(0, 0, 0, 0.55) 80%, #000 100%);
+}
+
+.ground > .pattern--structural,
+.ground--bone > .pattern--structural {
+  -webkit-mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+          mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+}
+
+[data-parallax] { translate: 0 var(--py, 0px); }
+
+/* A section divider — a 28px band of the 34px hairline tile. */
+.pattern-band {
+  height: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cg fill='none' stroke='%23B87446' stroke-width='0.7'%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1'/%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1' transform='rotate(45 17 17)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: var(--pattern-hairline) var(--pattern-hairline);
+  border-block: 1px solid var(--rule);
+  opacity: 0.75;
+}
+
+/* A left-hand gutter of pattern, bleeding off the top and bottom edges. */
+.pattern-gutter {
+  border-right: 1px solid var(--rule);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cg fill='none' stroke='%23B87446' stroke-width='0.7'%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1'/%3E%3Crect x='6.5' y='6.5' width='21.1' height='21.1' transform='rotate(45 17 17)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: var(--pattern-hairline) var(--pattern-hairline);
+  background-color: var(--bone-shade);
+  opacity: 0.55;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — a hard-edged block with a hairline rule 4px inside its edge.
+   Three ranks: filled, outlined, ruled text. Never rounded.
+   -------------------------------------------------------------------------- */
+
+/* Every button carries its own opaque ground, so a pattern never runs
+   through the label. ::after is the inset rule; ::before is the motion layer
+   (a sheen across a filled block, a rising fill inside an outlined one). */
+.btn {
+  --btn-edge: 70%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  min-width: 196px;
+  padding: var(--s-4) clamp(28px, 4vw, 52px);
+  font-family: var(--font-text);
+  font-size: var(--t-label);
+  font-weight: 400;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, currentColor var(--btn-edge), transparent);
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    translate var(--dur-fast) var(--ease);
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: var(--s-1);
+  border: 1px solid color-mix(in srgb, currentColor 42%, transparent);
+  pointer-events: none;
+  transition: inset var(--dur) var(--ease-out), border-color var(--dur) var(--ease);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn:hover::after { inset: 6px; border-color: color-mix(in srgb, currentColor 65%, transparent); }
+.btn:active { translate: 0 1px; }
+
+/* Filled — a lit block. */
+.btn--filled {
+  --btn-sheen: var(--sheen);
+  background: linear-gradient(180deg, var(--teal-hover) 0%, var(--teal) 55%, var(--teal-deep) 100%);
+  color: var(--bone);
+  filter: var(--gild);
+}
+
+.btn--filled::before {
+  background: linear-gradient(105deg, transparent 32%, var(--btn-sheen) 50%, transparent 68%);
+  translate: -120% 0;
+}
+
+.btn--filled:hover { color: var(--bone); box-shadow: var(--shadow-soft); }
+
+.btn--filled:hover::before {
+  translate: 120% 0;
+  transition: translate 0.9s var(--ease-out);
+}
+
+/* Outlined — rests on its own ground, fills from the floor up on hover. */
+.btn--outlined {
+  --btn-rest: var(--bone-light);
+  --btn-fill: var(--teal);
+  --btn-fill-text: var(--bone);
+  background-color: var(--btn-rest);
+  color: var(--teal);
+}
+
+.btn--outlined::before {
+  background: var(--btn-fill);
+  transform-origin: 50% 100%;
+  scale: 1 0;
+  transition: scale 0.55s var(--ease-out);
+}
+
+.btn--outlined:hover { color: var(--btn-fill-text); }
+.btn--outlined:hover::before { scale: 1 1; }
+
+/* On teal and spice grounds the ranks invert. */
+.ground--teal .btn--filled,
+.ground--spice .btn--filled {
+  --btn-sheen: var(--sheen-warm);
+  background: var(--bone);
+  color: var(--teal);
+  filter: none;
+}
+
+.ground--teal .btn--filled:hover,
+.ground--spice .btn--filled:hover { background: var(--bone-light); color: var(--teal); }
+
+.ground--teal .btn--outlined {
+  --btn-rest: var(--teal-deep);
+  --btn-fill: var(--bone);
+  --btn-fill-text: var(--teal);
+  color: var(--bone);
+}
+
+.ground--spice .btn--outlined {
+  --btn-rest: var(--spice-deep);
+  --btn-fill: var(--silk-sand);
+  --btn-fill-text: var(--spice);
+  color: var(--silk-sand);
+}
+
+/* Tertiary: a ruled text link, never a box. The rule is drawn twice — a
+   copper base, and a darker stroke that runs across it on hover. */
+.btn-text {
+  --line: var(--copper);
+  --line-hover: var(--copper-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding-bottom: var(--s-1);
+  font-family: var(--font-text);
+  font-size: var(--t-label);
+  font-weight: 400;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--teal);
+  background-image: linear-gradient(var(--line-hover), var(--line-hover)), linear-gradient(var(--line), var(--line));
+  background-size: 0% 1px, 100% 1px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: color var(--dur) var(--ease), background-size 0.6s var(--ease-out);
+}
+
+.btn-text:hover { color: var(--copper-deep); background-size: 100% 1px, 100% 1px; }
+
+.btn-text > span[aria-hidden="true"] {
+  display: inline-block;
+  transition: translate var(--dur) var(--ease-out);
+}
+
+.btn-text:hover > span[aria-hidden="true"]:last-child { translate: 3px -3px; }
+.btn-text:hover > span[aria-hidden="true"]:first-child:not(:last-child) { translate: -4px 0; }
+
+.ground--teal .btn-text { --line: var(--copper-soft); --line-hover: var(--bone); color: var(--bone); }
+.ground--teal .btn-text:hover { color: var(--copper-soft); }
+.ground--spice .btn-text { --line: var(--silk-sand); --line-hover: var(--copper-glow); color: var(--silk-sand); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  align-items: center;
+}
+
+/* Filters — a 2px seam, no inset rule. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.filter {
+  min-height: 44px;
+  padding: var(--s-3) var(--s-4);
+  font-family: var(--font-text);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background-color: var(--bone-light);
+  border: 1px solid var(--line-ui-strong);
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    translate var(--dur-fast) var(--ease);
+}
+
+.filter:hover { border-color: var(--teal); background-color: var(--bone-shade); translate: 0 -1px; }
+.filter:active { translate: 0 0; }
+
+.filter[aria-pressed="true"] {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--bone);
+  font-weight: 400;
+}
+
+/* A status block — reads as information, not as a button. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  border: 1px solid var(--rule);
+}
+
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--copper);
+}
+
+.ground--teal .status { color: var(--copper-soft); border-color: var(--rule-on-teal); }
+
+/* --------------------------------------------------------------------------
+   Forms — underline only, jade on focus.
+   -------------------------------------------------------------------------- */
+
+/* The field draws its own focus line: a 2px jade stroke that runs out from
+   the left along the underline. Pure CSS, so it works without script. */
+.field {
+  display: block;
+  position: relative;
+}
+
+.field::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--jade);
+  transform-origin: 0 50%;
+  scale: 0 1;
+  transition: scale 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+.field:focus-within::after { scale: 1 1; }
+
+.field__label {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  transition: color var(--dur) var(--ease);
+}
+
+.field:focus-within .field__label { color: var(--jade); }
+
+.field__input,
+.field__select,
+.field__textarea {
+  display: block;
+  width: 100%;
+  padding: var(--s-3) 0;
+  font-size: var(--t-body);
+  font-weight: 300;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line-ui);
+  border-radius: 0;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.field__textarea { resize: vertical; min-height: 84px; }
+
+.field__input:hover,
+.field__select:hover,
+.field__textarea:hover { border-bottom-color: var(--copper-deep); }
+
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus { outline: none; }
+
+.field__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B87446' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+}
+
+.ground--teal .field__label { color: var(--copper-soft); }
+.ground--teal .field:focus-within .field__label { color: var(--bone); }
+.ground--teal .field::after { background: var(--bone); }
+
+/* color-scheme turns the native date and time pickers light on teal;
+   without it their icons render black on the dark ground. */
+.ground--teal .field__input,
+.ground--teal .field__select,
+.ground--teal .field__textarea {
+  color: var(--bone);
+  color-scheme: dark;
+  border-bottom-color: var(--line-ui-teal);
+}
+
+.ground--teal .field__input:hover,
+.ground--teal .field__select:hover,
+.ground--teal .field__textarea:hover { border-bottom-color: var(--copper-soft); }
+
+/* The open dropdown is drawn by the OS on a light sheet — keep its text dark. */
+.field__select option { color: var(--ink); background-color: var(--bone-light); }
+
+/* --------------------------------------------------------------------------
+   Reservation block — homepage and Contacts share this
+   -------------------------------------------------------------------------- */
+
+.reserve {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.reserve__copy .h1 { margin-bottom: var(--s-4); }
+.reserve__copy .body { margin-bottom: var(--s-5); }
+
+.reserve__phone {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--t-h3);
+  color: var(--copper-deep);
+}
+
+@media (max-width: 900px) {
+  .reserve { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Booking panel — a printed card: an opaque plate with the button's inset
+   rule, four numbered steps, and a ticket line that reads the choice back.
+
+   Day, time and guests are ledgers — one ruled block split into cells, the
+   chosen cell filled like a button. Time and guests are plain radios, so
+   they work without script; site.js only builds the day strip (it needs
+   today's date), dims times that have passed and reads the ticket back.
+   -------------------------------------------------------------------------- */
+
+.booking {
+  --bk-ground:      var(--bone-light);
+  --bk-edge:        var(--rule);
+  --bk-inset:       var(--rule-soft);
+  --bk-text:        var(--ink);
+  --bk-head:        var(--teal);
+  --bk-muted:       var(--copper-deep);
+  --bk-cell:        var(--bone-light);
+  --bk-cell-hover:  var(--bone-shade);
+  --bk-cell-edge:   var(--line-ui);
+  --bk-pick:        var(--teal);
+  --bk-pick-text:   var(--bone);
+  --bk-alert:       var(--alert);
+  position: relative;
+  container-type: inline-size;
+  padding: clamp(24px, 3.4vw, 44px);
+  color: var(--bk-text);
+  background: var(--bk-ground);
+  border: 1px solid var(--bk-edge);
+  box-shadow: var(--shadow-soft);
+}
+
+.booking::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--bk-inset);
+  pointer-events: none;
+}
+
+.ground--teal .booking {
+  --bk-ground:      var(--teal-deep);
+  --bk-edge:        var(--line-ui-teal);
+  --bk-inset:       var(--rule-on-teal);
+  --bk-text:        var(--bone);
+  --bk-head:        var(--bone);
+  --bk-muted:       var(--copper-soft);
+  --bk-cell:        var(--teal-deep);
+  --bk-cell-hover:  var(--teal);
+  --bk-cell-edge:   var(--line-ui-teal);
+  --bk-pick:        var(--bone);
+  --bk-pick-text:   var(--teal);
+  --bk-alert:       var(--alert-on-dark);
+  box-shadow: var(--shadow-deep);
+}
+
+.booking__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--bk-edge);
+}
+
+.booking__head .eyebrow { color: var(--bk-head); }
+
+/* Steps ------------------------------------------------------------------- */
+
+.booking__steps {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.booking__step {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Floated, so the legend lays out like a block and the aside can sit
+   beside it on the same line. */
+.booking__legend {
+  float: left;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: 0;
+  margin-bottom: var(--s-3);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bk-muted);
+}
+
+.booking__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--copper);
+}
+
+.ground--teal .booking__num { color: var(--copper-soft); }
+
+.booking__aside {
+  float: right;
+  margin: 0.55em 0 var(--s-3) var(--s-3);
+  font-size: var(--t-small);
+  letter-spacing: 0.04em;
+  color: var(--bk-muted);
+}
+
+.booking__aside a {
+  color: var(--bk-head);
+  border-bottom: 1px solid var(--copper);
+}
+
+.booking__aside a:hover { color: var(--bk-muted); }
+
+.booking__step > :not(legend, .booking__aside) { clear: both; }
+
+/* Ledgers ------------------------------------------------------------------ */
+
+.ledger {
+  --cols: 8;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 1px;
+  background: var(--bk-cell-edge);
+  border: 1px solid var(--bk-cell-edge);
+}
+
+.ledger--times { --cols: 5; }
+
+.ledger__cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: var(--s-2) var(--s-1);
+  font-size: var(--t-label);
+  letter-spacing: 0.08em;
+  color: var(--bk-head);
+  background: var(--bk-cell);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.ledger__cell input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.ledger__cell:hover { background: var(--bk-cell-hover); }
+
+/* The chosen cell becomes a filled block with the button's inset rule. */
+.ledger__cell:has(input:checked) {
+  background: var(--bk-pick);
+  color: var(--bk-pick-text);
+}
+
+.ledger__cell:has(input:checked)::after {
+  content: "";
+  position: absolute;
+  inset: var(--s-1);
+  border: 1px solid color-mix(in srgb, var(--bk-pick-text) 40%, transparent);
+  pointer-events: none;
+}
+
+.ledger__cell:has(input:focus-visible) {
+  outline: 2px solid var(--jade);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.ground--teal .ledger__cell:has(input:focus-visible) { outline-color: var(--bone); }
+
+.ledger__cell:has(input:disabled) {
+  cursor: not-allowed;
+  background: var(--bk-cell);
+  color: color-mix(in srgb, var(--bk-head) 32%, transparent);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--bk-muted) 60%, transparent);
+}
+
+/* Day cells: weekday, date, month. */
+.ledger--days .ledger__cell { min-height: 74px; }
+
+.day__dow,
+.day__mon {
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bk-muted);
+}
+
+.day__num {
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.ledger__cell:has(input:checked) :is(.day__dow, .day__mon) { color: inherit; opacity: 0.8; }
+
+/* Today carries the status square in its corner. */
+.ledger__cell--today::before {
+  content: "";
+  position: absolute;
+  top: var(--s-2);
+  right: var(--s-2);
+  width: 5px;
+  height: 5px;
+  background: var(--copper);
+}
+
+.day__more { font-size: 1.375rem; font-weight: 200; line-height: 1.1; }
+
+/* The native picker behind "More dates" — invisible, anchored to its cell.
+   Where showPicker() is missing, booking.js lays it over the whole cell. */
+.ledger__cell .booking__picker {
+  inset: auto 0 0;
+  width: 100%;
+  height: 1px;
+}
+
+.ledger__cell .booking__picker--overlay {
+  inset: 0;
+  height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Service tabs: which part of the day the time ledger shows. */
+.tabs {
+  display: flex;
+  margin-bottom: var(--s-3);
+  border-bottom: 1px solid var(--bk-edge);
+}
+
+.tabs__tab {
+  position: relative;
+  flex: 1;
+  padding: var(--s-2) var(--s-1) var(--s-3);
+  text-align: center;
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--bk-muted);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.tabs__tab input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.tabs__tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--copper);
+  scale: 0 1;
+  transition: scale var(--dur) var(--ease-out);
+}
+
+.tabs__tab:hover { color: var(--bk-head); }
+.tabs__tab:has(input:checked) { color: var(--bk-head); }
+.tabs__tab:has(input:checked)::after { scale: 1 1; }
+.tabs__tab:has(input:focus-visible) { outline: 2px solid var(--jade); outline-offset: -2px; }
+.tabs__tab:has(input:disabled) { opacity: 0.4; cursor: not-allowed; }
+
+.ground--teal .tabs__tab::after { background: var(--copper-soft); }
+
+/* Only the chosen service's times are shown. Browsers without :has() get
+   every service at once, which still works. */
+.booking__slots { display: none; }
+.booking__step:has(.tabs input[value="breakfast"]:checked) .booking__slots[data-service="breakfast"],
+.booking__step:has(.tabs input[value="lunch"]:checked)     .booking__slots[data-service="lunch"],
+.booking__step:has(.tabs input[value="dinner"]:checked)    .booking__slots[data-service="dinner"],
+.booking__step:has(.tabs input[value="late"]:checked)      .booking__slots[data-service="late"] { display: grid; }
+
+@supports not selector(:has(*)) {
+  .booking__slots { display: grid; margin-bottom: var(--s-2); }
+  .tabs { display: none; }
+}
+
+/* Details ------------------------------------------------------------------ */
+
+.booking__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4) var(--s-4);
+}
+
+.booking__wide { grid-column: 1 / -1; }
+
+.booking .field__textarea { min-height: 0; resize: none; }
+.booking .field__input::placeholder,
+.booking .field__textarea::placeholder { color: var(--bk-muted); opacity: 0.7; }
+
+/* Errors ------------------------------------------------------------------- */
+
+.booking__error {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+  font-size: var(--t-small);
+  color: var(--bk-alert);
+}
+
+.booking__error::before {
+  content: "";
+  flex: none;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+}
+
+.booking__error[hidden] { display: none; }
+
+[data-invalid="true"] .ledger,
+.ledger[data-invalid="true"] { background: var(--bk-alert); border-color: var(--bk-alert); }
+[data-invalid="true"] .tabs { border-bottom-color: var(--bk-alert); }
+.booking .field__input[aria-invalid="true"] { border-bottom-color: var(--bk-alert); }
+.booking .field:has([aria-invalid="true"]) .field__label { color: var(--bk-alert); }
+
+/* Ticket line and submit ---------------------------------------------------- */
+
+.booking__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--bk-edge);
+}
+
+.booking__ticket { display: none; }
+.js .booking__ticket { display: grid; gap: var(--s-1); }
+
+.booking__ticket .eyebrow { color: var(--bk-muted); }
+
+.booking__ticket-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--bk-head);
+}
+
+.booking__ticket-line .is-empty { opacity: 0.42; }
+
+.booking__foot .btn { flex: none; }
+
+/* Sent --------------------------------------------------------------------- */
+
+.booking__done {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-3);
+  padding: var(--s-6) 0 var(--s-5);
+  text-align: center;
+}
+
+.booking__done:focus { outline: none; }
+.booking__done[hidden] { display: none; }
+.booking__done .eyebrow { color: var(--bk-muted); }
+.booking__done .h3 { color: var(--bk-head); }
+.booking__done .body { color: var(--bk-text); }
+.booking__done .small { color: var(--bk-muted); }
+.booking__done .btn-text { margin-top: var(--s-4); }
+
+.booking__sun {
+  width: 44px;
+  margin-bottom: var(--s-2);
+  animation: silkSpinIn 1.6s var(--ease-out) both;
+}
+
+.booking[data-state="sent"] :is(.booking__steps, .booking__foot) { display: none; }
+
+@keyframes silkSpinIn {
+  from { opacity: 0; transform: rotate(-120deg) scale(0.7); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Narrow panels ------------------------------------------------------------- */
+
+@container (max-width: 520px) {
+  .ledger--days,
+  .ledger--guests { --cols: 4; }
+  .booking__fields { grid-template-columns: minmax(0, 1fr); }
+  .booking__foot { flex-direction: column; align-items: stretch; }
+  .booking__foot .btn { width: 100%; }
+  .booking__aside { float: none; clear: both; margin: 0 0 var(--s-3); }
+}
+
+/* The time ledger stays at five columns at every width: each service has
+   five or ten times, so its rows always close. */
+@container (max-width: 360px) {
+  .tabs__tab { letter-spacing: 0.1em; }
+  .ledger--times .ledger__cell { letter-spacing: 0.02em; }
+}
+
+/* --------------------------------------------------------------------------
+   Media
+   -------------------------------------------------------------------------- */
+
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--bone-shade);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media--4x5   { aspect-ratio: 4 / 5; }
+.media--3x4   { aspect-ratio: 3 / 4; }
+.media--1x1   { aspect-ratio: 1 / 1; }
+.media--16x9  { aspect-ratio: 16 / 9; }
+.media--21x9  { aspect-ratio: 21 / 9; }
+
+/* Every photograph leans in a little under the pointer. */
+.media img { transition: transform 1.4s var(--ease-out); }
+.media:hover img { transform: scale(1.045); }
+
+.caption {
+  margin-top: var(--s-3);
+  font-size: var(--t-small);
+  color: var(--copper-deep);
+}
+
+/* A placeholder frame for artwork that has not been shot yet. */
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: var(--s-6) var(--s-4);
+  text-align: center;
+  font-size: var(--t-small);
+  letter-spacing: 0.1em;
+  color: var(--copper-deep);
+  background-color: var(--bone-shade);
+  border: 1px solid var(--rule);
+}
+
+.ground--teal .placeholder {
+  color: var(--copper-soft);
+  background-color: rgba(239, 233, 224, 0.04);
+  border-color: var(--rule-on-teal);
+}
+
+/* --------------------------------------------------------------------------
+   Marks — the drawn sun and the SILK wordmark, injected by silk-marks.js
+   -------------------------------------------------------------------------- */
+
+.mark { display: block; flex-shrink: 0; }
+.mark--sun  { aspect-ratio: 1 / 1; }
+.mark--word { aspect-ratio: 180.03 / 142.78; }
+
+/* --------------------------------------------------------------------------
+   Reveal on scroll
+   site.js tags elements below the fold with .reveal (plus a variant) and
+   sets --reveal-delay so siblings arriving together cascade. Reveals move
+   with the individual `translate` / `scale` properties, animations with
+   `transform`, and parallax with `translate` on elements that are never
+   revealed — so none of the three overwrite each other.
+   -------------------------------------------------------------------------- */
+
+.js .reveal {
+  opacity: 0;
+  translate: 0 var(--rise);
+  transition:
+    opacity var(--dur-reveal) var(--ease-out) var(--reveal-delay, 0ms),
+    translate var(--dur-reveal) var(--ease-out) var(--reveal-delay, 0ms),
+    filter var(--dur-reveal) var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.js .reveal.is-visible { opacity: 1; translate: 0 0; }
+
+/* Display type arrives out of a slight blur. */
+.js .reveal--heading { filter: blur(6px); translate: 0 calc(var(--rise) * 1.4); }
+.js .reveal--heading.is-visible { filter: blur(0); translate: 0 0; }
+
+/* A rule draws itself from the left. */
+.js .reveal--line {
+  opacity: 1;
+  translate: none;
+  transform-origin: 0 50%;
+  scale: 0 1;
+  transition: scale 1.2s var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.js .reveal--line.is-visible { scale: 1 1; }
+
+/* A photograph is uncovered from the floor up while it settles from a zoom.
+   The clip sits on the image, not the frame: a fully clipped element has no
+   area, and IntersectionObserver would never see the frame arrive. */
+.js .reveal--media {
+  opacity: 1;
+  translate: none;
+}
+
+.js .reveal--media img {
+  clip-path: inset(100% 0 0 0);
+  scale: 1.16;
+  transition:
+    clip-path 1.3s var(--ease-out) var(--reveal-delay, 0ms),
+    scale 1.9s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 1.4s var(--ease-out);
+}
+
+.js .reveal--media.is-visible img { clip-path: inset(0 0 0 0); scale: 1; }
+
+/* Page-load entrance for the first screen: nothing to scroll to, so the
+   opening block rises in on its own, eyebrow first and actions last. */
+.js main > :first-child :is(.eyebrow, .section-mark, .article-head__back, .post-meta, h1, .hero-type, .h1, .h2, .article-head__standfirst, .chef-hero__role, .body, .btn-row, .filters, .rating, .menu-hero__strip, .gallery-head__aside) {
+  animation: silkRise 1.2s var(--ease-out) both;
+  animation-delay: 0.05s;
+}
+
+.js main > :first-child :is(h1, .hero-type, .h1) { animation-delay: 0.16s; }
+.js main > :first-child :is(.h2, .article-head__standfirst, .chef-hero__role) { animation-delay: 0.3s; }
+.js main > :first-child .body { animation-delay: 0.4s; }
+.js main > :first-child :is(.btn-row, .filters, .rating, .menu-hero__strip, .gallery-head__aside) { animation-delay: 0.55s; }
+.js main > :first-child :is(.section-mark, .btn-row) :is(.eyebrow, .btn) { animation: none; }
+
+@keyframes silkRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes silkSettle {
+  from { transform: scale(1.08); }
+  to   { transform: none; }
+}
+
+@keyframes silkFadeUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal--heading,
+  .js .reveal--line,
+  .js .reveal--media,
+  .js .reveal--media img {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    filter: none;
+    clip-path: none;
+  }
+  [data-parallax] { translate: none; }
+}

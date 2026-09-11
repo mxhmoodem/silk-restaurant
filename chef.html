@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>The Chef — SILK</title>
+  <meta name="description" content="Maxim Fomenkov, head chef. Trained in Uzbekistan, sharpened in Moscow, cooking in Canggu.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Chef — SILK">
+  <meta property="og:description" content="Maxim Fomenkov, head chef. Trained in Uzbekistan, sharpened in Moscow, cooking in Canggu.">
+  <meta property="og:image" content="assets/img/photos/hero.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/chef.css">
+</head>
+<body data-page="chef">
+<script src="assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html" aria-label="SILK — home">
+    <svg class="mark mark--sun nav__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+    <svg class="mark mark--word nav__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+  </a>
+
+  <button class="nav__burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a>
+      <a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a>
+      <a href="chef.html" aria-current="page"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a>
+      <a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a>
+      <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a>
+      <a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a>
+      <a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a>
+      <div class="lang nav__lang" role="group" aria-label="Language">
+        <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+      </div>
+  </nav>
+
+  <div class="nav__aside">
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="nav__phone" href="tel:+62811000000">+62 811 000 000</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== PORTRAIT HERO ===================== -->
+<section class="section section--flush chef-hero">
+  <figure class="chef-hero__figure">
+    <div class="media chef-hero__media">
+      <img src="assets/img/photos/img7009-1600.jpg"
+           srcset="assets/img/photos/img7009-800.jpg 800w, assets/img/photos/img7009-1600.jpg 1600w"
+           sizes="(max-width: 900px) 100vw, 42vw"
+           alt="The chef carrying a finished plate out of the kitchen" width="800" height="1200" fetchpriority="high">
+    </div>
+  </figure>
+
+  <div class="chef-hero__copy">
+    <p class="eyebrow"><span data-lang="en">The Chef &middot; SILK Canggu</span><span data-lang="ru">Шеф &middot; SILK Чангу</span></p>
+
+    <div data-lang="en">
+      <h1 class="hero-type chef-hero__name">Maxim <br>Fomenkov</h1>
+      <p class="body chef-hero__role">Head chef. Trained in Uzbekistan, sharpened in Moscow, cooking in Canggu.</p>
+      <p class="body">He learned plov where it is argued about, and learned service where it is measured. SILK is the first place he has had both at once.</p>
+    </div>
+    <div data-lang="ru">
+      <h1 class="hero-type chef-hero__name">Максим <br>Фоменков</h1>
+      <p class="body chef-hero__role">Шеф-повар. Учился в Узбекистане, оттачивал в Москве, готовит в Чангу.</p>
+      <p class="body">Он узнал плов там, где о нём спорят, и узнал сервис там, где его измеряют. SILK — первое место, где у него есть и то, и другое сразу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHILOSOPHY, SET LARGE ===================== -->
+<section class="section ground--teal chef-philosophy">
+  <div class="pattern pattern--structural pattern--on-dark" aria-hidden="true"></div>
+
+  <div class="section__inner chef-philosophy__inner">
+    <p class="eyebrow"><span data-lang="en">Philosophy</span><span data-lang="ru">Философия</span></p>
+
+    <blockquote class="chef-philosophy__quote">
+      <p data-lang="en">I cook cuisine with emotion, atmosphere and identity — where every ingredient and every spice tells part of a larger story.</p>
+      <p data-lang="ru">Я готовлю кухню с эмоцией, атмосферой и характером — где каждый ингредиент и каждая специя рассказывают часть большой истории.</p>
+      <cite><span data-lang="en">Maxim Fomenkov</span><span data-lang="ru">Максим Фоменков</span></cite>
+    </blockquote>
+  </div>
+</section>
+
+<div class="pattern-band" aria-hidden="true"></div>
+
+<!-- ===================== THREE KITCHENS ===================== -->
+<section class="section ground">
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter-numeral">03</span>
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">Three kitchens</span><span data-lang="ru">Три кухни</span></p>
+    </header>
+
+    <ol class="kitchens">
+      <li class="kitchen">
+        <h2 class="kitchen__place"><span data-lang="en">Uzbekistan</span><span data-lang="ru">Узбекистан</span></h2>
+        <p class="eyebrow"><span data-lang="en">Where it began</span><span data-lang="ru">Где всё началось</span></p>
+        <p class="body"><span data-lang="en">Kazan, tandoor and the unwritten rules of plov — learned in kitchens where nobody writes anything down.</span><span data-lang="ru">Казан, тандыр и неписаные правила плова — выучены на кухнях, где ничего не записывают.</span></p>
+      </li>
+      <li class="kitchen">
+        <h2 class="kitchen__place"><span data-lang="en">Moscow</span><span data-lang="ru">Москва</span></h2>
+        <p class="eyebrow"><span data-lang="en">Where it was tested</span><span data-lang="ru">Где это проверялось</span></p>
+        <p class="body"><span data-lang="en">Full rooms, hard standards, restaurants that open and close in a season. Discipline came from here.</span><span data-lang="ru">Полные залы, жёсткие стандарты, рестораны, которые открываются и закрываются за сезон. Дисциплина — отсюда.</span></p>
+      </li>
+      <li class="kitchen">
+        <h2 class="kitchen__place"><span data-lang="en">Bali</span><span data-lang="ru">Бали</span></h2>
+        <p class="eyebrow"><span data-lang="en">Where it is now</span><span data-lang="ru">Где это сейчас</span></p>
+        <p class="body"><span data-lang="en">A room he designed the menu around, not the other way around. The first kitchen that is entirely his.</span><span data-lang="ru">Зал, вокруг которого он построил меню, а не наоборот. Первая кухня, которая целиком его.</span></p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="section section--tight ground--blush">
+  <div class="section__inner chef-closing">
+    <div data-lang="en">
+      <h2 class="h2">The tasting menu changes when the market does. Ask for it at the table.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="contacts.html#reserve">Reserve a table</a>
+        <a class="btn btn--outlined" href="blog.html">Recipes</a>
+      </div>
+    </div>
+    <div data-lang="ru">
+      <h2 class="h2">Дегустационное меню меняется вместе с рынком. Спросите о нём за столом.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="contacts.html#reserve">Забронировать</a>
+        <a class="btn btn--outlined" href="blog.html">Рецепты</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__marks">
+          <svg class="mark mark--sun footer__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+          <svg class="mark mark--word footer__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <p class="footer__tag"><span data-lang="en">Silk Road kitchen, Bali</span><span data-lang="ru">Кухня шёлкового пути, Бали</span></p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Pages</span><span data-lang="ru">Страницы</span></h2>
+        <ul class="footer__list">
+          <li><a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a></li>
+          <li><a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a></li>
+          <li><a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a></li>
+          <li><a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">More</span><span data-lang="ru">Ещё</span></h2>
+        <ul class="footer__list">
+          <li><a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a></li>
+          <li><a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a></li>
+          <li><a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a></li>
+          <li><a href="docs/brand-system.html"><span data-lang="en">Brand system</span><span data-lang="ru">Бренд-система</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Hours</span><span data-lang="ru">Часы</span></h2>
+        <ul class="footer__list">
+          <li><span data-lang="en">Daily 09:00 — 01:00</span><span data-lang="ru">Ежедневно 09:00 — 01:00</span></li>
+          <li><span data-lang="en">Kitchen closes 00:30</span><span data-lang="ru">Кухня закрывается в 00:30</span></li>
+          <li><span data-lang="en">Live oud, Fridays from 20:00</span><span data-lang="ru">Живой уд, по пятницам с 20:00</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Contact</span><span data-lang="ru">Контакты</span></h2>
+        <ul class="footer__list">
+          <li><a href="tel:+62811000000">+62 811 000 000</a></li>
+          <li><a href="mailto:hello@silk.bali">hello@silk.bali</a></li>
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <a class="footer__map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+          <div class="pattern pattern--on-dark pattern--hairline" aria-hidden="true"></div>
+          <span>Jl. Subak Canggu No.&nbsp;12<br>Canggu, Bali 80361</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SILK Restaurant Group</p>
+      <div class="footer__legal">
+        <a href="contacts.html#legal"><span data-lang="en">Terms</span><span data-lang="ru">Условия</span></a>
+        <a href="contacts.html#legal"><span data-lang="en">Privacy</span><span data-lang="ru">Конфиденциальность</span></a>
+      </div>
+      <p>Canggu &middot; Bali</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="contacts.html#reserve"><span data-lang="en">Reserve</span><span data-lang="ru">Бронь</span></a>
+  <a href="tel:+62811000000"><span data-lang="en">Call</span><span data-lang="ru">Позвонить</span></a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

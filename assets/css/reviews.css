@@ -1,0 +1,155 @@
+/* ==========================================================================
+   SILK — Reviews. Typographic throughout: no cards, no avatars, no boxes.
+   ========================================================================== */
+
+.reviews-head__wash {
+  inset: auto -160px -260px auto;
+  top: auto;
+  left: auto;
+  width: 820px;
+  height: 820px;
+}
+
+.reviews-head__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(32px, 5vw, 84px);
+  align-items: end;
+}
+
+.reviews-head__title { margin: var(--s-4) 0 var(--s-4); }
+
+/* The rating, set as large as a headline. */
+.rating { text-align: right; }
+
+.rating__score {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(4rem, 2rem + 6vw, 7rem);
+  line-height: 0.9;
+  color: var(--teal);
+}
+
+.rating__stars {
+  margin-top: var(--s-2);
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+  color: var(--copper);
+}
+
+.rating__meta {
+  margin-top: var(--s-3);
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+@media (max-width: 760px) {
+  .reviews-head__inner { grid-template-columns: minmax(0, 1fr); }
+  .rating { text-align: left; }
+}
+
+/* --------------------------------------------------------------------------
+   Featured quote
+   -------------------------------------------------------------------------- */
+
+.featured-review { margin: 0; max-width: 60rem; }
+
+.featured-review__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.625rem, 1rem + 2.4vw, 2.75rem);
+  line-height: 1.3;
+  color: var(--bone);
+}
+
+.featured-review__by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule-on-teal);
+}
+
+.featured-review__name {
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.featured-review__src {
+  font-size: var(--t-small);
+  color: var(--copper-soft);
+}
+
+/* --------------------------------------------------------------------------
+   The flow — a masonry-ish run of quotes, no card chrome
+   -------------------------------------------------------------------------- */
+
+/* dense packing lets a short quote drop into the hole a wide one leaves. */
+.review-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-flow: row dense;
+  gap: var(--s-6) clamp(32px, 4vw, 64px);
+}
+
+.review {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+}
+
+.review--wide { grid-column: span 2; }
+
+.review__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-quote);
+  line-height: var(--lh-quote);
+  color: var(--teal);
+}
+
+.review__by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.review__name {
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.review__src {
+  font-size: var(--t-small);
+  color: var(--copper-deep);
+}
+
+.stars {
+  letter-spacing: 0.14em;
+  color: var(--copper);
+}
+
+.stars__off { opacity: 0.3; }
+
+@media (max-width: 860px) {
+  .review--wide { grid-column: auto; }
+}
+
+/* --------------------------------------------------------------------------
+   Closing
+   -------------------------------------------------------------------------- */
+
+.reviews-cta { max-width: 46rem; }
+.reviews-cta .h2 { margin-bottom: var(--s-5); }

@@ -1,0 +1,225 @@
+/* ==========================================================================
+   SILK — Long-form article template
+   Loaded after blog.css, which supplies .post-meta.
+   ========================================================================== */
+
+.article-head__inner { max-width: 58rem; }
+.article-head__back { margin-bottom: var(--s-6); }
+.article-head__meta { margin-bottom: var(--s-4); }
+.article-head__title { margin-bottom: var(--s-5); }
+
+.article-head__standfirst {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--t-quote);
+  line-height: 1.4;
+  color: var(--copper-deep);
+  max-width: 42rem;
+}
+
+/* A full-bleed band, cropped short so a portrait frame reads as a header. */
+.article-hero {
+  height: clamp(280px, 38vw, 520px);
+  overflow: hidden;
+  background: var(--teal-deep);
+}
+
+/* Overscanned for the parallax drift set by site.js. */
+.article-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  scale: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Body — a contents rail beside the prose column
+   -------------------------------------------------------------------------- */
+
+.article-body__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 84px);
+  align-items: start;
+}
+
+.article-toc {
+  position: sticky;
+  top: calc(var(--s-7) + var(--s-4));
+}
+
+.article-toc__label {
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-3);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-toc ol {
+  counter-reset: toc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.article-toc a {
+  display: flex;
+  gap: var(--s-3);
+  font-size: var(--t-small);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.article-toc a::before {
+  counter-increment: toc;
+  content: counter(toc, decimal-leading-zero);
+  color: var(--copper);
+  font-variant-numeric: tabular-nums;
+}
+
+.article-toc a:hover { color: var(--teal); }
+
+.article-aside {
+  margin-top: var(--s-6);
+  padding: var(--s-4);
+  background: var(--bone-shade);
+  border-top: 2px solid var(--copper);
+}
+
+.article-aside__label {
+  margin-bottom: var(--s-3);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+.article-aside .btn-text { margin-top: var(--s-4); }
+
+@media (max-width: 900px) {
+  .article-body__inner { grid-template-columns: minmax(0, 1fr); }
+  .article-toc { position: static; }
+}
+
+/* --------------------------------------------------------------------------
+   Prose
+   -------------------------------------------------------------------------- */
+
+.prose { max-width: var(--measure); }
+
+.prose p {
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+
+.prose p + p { margin-top: var(--s-4); }
+
+.prose h2 {
+  margin: var(--s-7) 0 var(--s-4);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-h2);
+  line-height: var(--lh-h2);
+  color: var(--teal);
+  scroll-margin-top: var(--s-7);
+}
+
+.prose__figure { margin: var(--s-7) 0; }
+
+.prose__quote {
+  margin: var(--s-7) 0;
+  padding: var(--s-5) 0;
+  border-block: 1px solid var(--copper);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1rem + 1.8vw, 2.125rem);
+  line-height: 1.34;
+  color: var(--teal);
+}
+
+.prose__quote cite {
+  display: block;
+  margin-top: var(--s-4);
+  font-family: var(--font-text);
+  font-style: normal;
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+.prose__steps {
+  counter-reset: step;
+  margin-top: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.prose__steps li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: var(--s-3);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: var(--t-body);
+  line-height: 1.5;
+}
+
+.prose__steps li::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--copper);
+}
+
+/* --------------------------------------------------------------------------
+   Next article
+   -------------------------------------------------------------------------- */
+
+.article-next__link {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) 40px;
+  gap: var(--s-5);
+  align-items: baseline;
+  color: var(--bone);
+}
+
+.article-next__label {
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-soft);
+}
+
+.article-next__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--t-h3);
+  color: var(--bone);
+}
+
+.article-next__arrow {
+  justify-self: end;
+  font-size: 1.25rem;
+  color: var(--copper-soft);
+  transition: transform var(--dur) var(--ease);
+}
+
+.article-next__link:hover .article-next__arrow { transform: translateX(6px); }
+
+@media (max-width: 700px) {
+  .article-next__link { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); }
+  .article-next__arrow { justify-self: start; }
+}

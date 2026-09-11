@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Reviews — SILK</title>
+  <meta name="description" content="What guests say when they get home. 4.9 from 412 reviews on Google and TripAdvisor.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Reviews — SILK">
+  <meta property="og:description" content="What guests say when they get home. 4.9 from 412 reviews on Google and TripAdvisor.">
+  <meta property="og:image" content="assets/img/photos/hero.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/reviews.css">
+</head>
+<body data-page="reviews">
+<script src="assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html" aria-label="SILK — home">
+    <svg class="mark mark--sun nav__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+    <svg class="mark mark--word nav__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+  </a>
+
+  <button class="nav__burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a>
+      <a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a>
+      <a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a>
+      <a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a>
+      <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a>
+      <a href="reviews.html" aria-current="page"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a>
+      <a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a>
+      <div class="lang nav__lang" role="group" aria-label="Language">
+        <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+      </div>
+  </nav>
+
+  <div class="nav__aside">
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="nav__phone" href="tel:+62811000000">+62 811 000 000</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== HEADER — the rating, set large ===================== -->
+<section class="section ground reviews-head">
+  <div class="pattern pattern--structural reviews-head__wash" aria-hidden="true"></div>
+
+  <div class="section__inner reviews-head__inner">
+    <div class="reviews-head__copy">
+      <p class="eyebrow"><span data-lang="en">Reviews &middot; SILK Canggu</span><span data-lang="ru">Отзывы &middot; SILK Чангу</span></p>
+
+      <div data-lang="en">
+        <h1 class="h1 reviews-head__title">What guests say <br>when they get home</h1>
+        <p class="body">Left on Google, TripAdvisor and in the book by the door. Printed here as written.</p>
+      </div>
+      <div data-lang="ru">
+        <h1 class="h1 reviews-head__title">Что гости пишут, <br>вернувшись домой</h1>
+        <p class="body">Оставлено в Google, TripAdvisor и в книге у входа. Публикуем как написано.</p>
+      </div>
+    </div>
+
+    <div class="rating">
+      <p class="rating__score">4.9</p>
+      <p class="rating__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="rating__meta"><span data-lang="en">412 reviews &middot; Google, TripAdvisor</span><span data-lang="ru">412 отзывов &middot; Google, TripAdvisor</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED QUOTE ===================== -->
+<section class="section ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+
+  <figure class="section__inner featured-review">
+    <blockquote class="featured-review__quote">
+      <p data-lang="en">We came for dinner and left four hours later with a photograph, a recipe, and an argument about carrots we are still having.</p>
+      <p data-lang="ru">Пришли на ужин, ушли через четыре часа с фотографией, рецептом и спором про морковь, который продолжается до сих пор.</p>
+    </blockquote>
+
+    <figcaption class="featured-review__by">
+      <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="featured-review__name"><span data-lang="en">Elena V.</span><span data-lang="ru">Елена В.</span></span>
+      <span class="featured-review__src"><span data-lang="en">Google &middot; August 2026</span><span data-lang="ru">Google &middot; август 2026</span></span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ===================== THE FLOW ===================== -->
+<section class="section ground">
+  <ul class="section__inner review-flow">
+
+    <li class="review">
+      <blockquote class="review__text">
+        <p data-lang="en">The plov is the best I have had outside Tashkent, and I say that as someone who is difficult about it.</p>
+        <p data-lang="ru">Лучший плов, который я ел за пределами Ташкента, — а я в этом вопросе человек тяжёлый.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="review__name"><span data-lang="en">Rustam K.</span><span data-lang="ru">Рустам К.</span></span>
+        <span class="review__src">TripAdvisor</span>
+      </p>
+    </li>
+
+    <li class="review">
+      <blockquote class="review__text">
+        <p data-lang="en">Booked for six, ended up as eleven, and nobody blinked. They moved two tables together and brought more bread. That is the whole review.</p>
+        <p data-lang="ru">Бронировали на шестерых, пришли одиннадцать — никто не дрогнул. Сдвинули два стола и принесли ещё хлеба. Это весь отзыв.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="review__name"><span data-lang="en">Sofia M.</span><span data-lang="ru">София М.</span></span>
+        <span class="review__src">Google</span>
+      </p>
+    </li>
+
+    <li class="review review--wide">
+      <blockquote class="review__text">
+        <p data-lang="en">The man at the stall made coffee in hot sand and told my daughter a story about a camel. She is nine. She has not stopped talking about it.</p>
+        <p data-lang="ru">Человек за лавкой сварил кофе на песке и рассказал дочери историю про верблюда. Ей девять. Она до сих пор об этом говорит.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="review__name"><span data-lang="en">James P.</span><span data-lang="ru">Джеймс П.</span></span>
+        <span class="review__src">Google</span>
+      </p>
+    </li>
+
+    <li class="review">
+      <blockquote class="review__text">
+        <p data-lang="en">Beautiful room without being precious about it. Loud in the good way by ten.</p>
+        <p data-lang="ru">Красивый зал без пафоса. К десяти шумно — в хорошем смысле.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="review__name"><span data-lang="en">Nadia R.</span><span data-lang="ru">Надя Р.</span></span>
+        <span class="review__src">Instagram</span>
+      </p>
+    </li>
+
+    <li class="review review--wide">
+      <blockquote class="review__text">
+        <p data-lang="en">We did a villa catering with them for a birthday in Pererenan. Mangal on the lawn, twenty-eight people, finished on time and cleaned up before we noticed.</p>
+        <p data-lang="ru">Заказывали у них кейтеринг на день рождения в Переренане. Мангал на лужайке, двадцать восемь человек, закончили вовремя и убрали раньше, чем мы заметили.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="review__name"><span data-lang="en">Tom &amp; Aiko</span><span data-lang="ru">Том и Айко</span></span>
+        <span class="review__src">Google</span>
+      </p>
+    </li>
+
+    <li class="review">
+      <blockquote class="review__text">
+        <p data-lang="en">Four stars only because I could not get a table on Friday.</p>
+        <p data-lang="ru">Четыре звезды только потому, что не смог сесть в пятницу.</p>
+      </blockquote>
+      <p class="review__by">
+        <span class="stars stars--four" aria-label="4 out of 5">&#9733;&#9733;&#9733;&#9733;<span class="stars__off">&#9733;</span></span>
+        <span class="review__name"><span data-lang="en">Dmitry L.</span><span data-lang="ru">Дмитрий Л.</span></span>
+        <span class="review__src">TripAdvisor</span>
+      </p>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="section section--tight ground--blush">
+  <div class="section__inner reviews-cta">
+    <div data-lang="en">
+      <h2 class="h2">Ate with us? The book by the door is real, and so is Google.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">Leave a review</a>
+        <a class="btn btn--outlined" href="contacts.html#reserve">Reserve</a>
+      </div>
+    </div>
+    <div data-lang="ru">
+      <h2 class="h2">Были у нас? Книга у входа настоящая — и Google тоже.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">Оставить отзыв</a>
+        <a class="btn btn--outlined" href="contacts.html#reserve">Бронь</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__marks">
+          <svg class="mark mark--sun footer__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+          <svg class="mark mark--word footer__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <p class="footer__tag"><span data-lang="en">Silk Road kitchen, Bali</span><span data-lang="ru">Кухня шёлкового пути, Бали</span></p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Pages</span><span data-lang="ru">Страницы</span></h2>
+        <ul class="footer__list">
+          <li><a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a></li>
+          <li><a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a></li>
+          <li><a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a></li>
+          <li><a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">More</span><span data-lang="ru">Ещё</span></h2>
+        <ul class="footer__list">
+          <li><a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a></li>
+          <li><a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a></li>
+          <li><a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a></li>
+          <li><a href="docs/brand-system.html"><span data-lang="en">Brand system</span><span data-lang="ru">Бренд-система</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Hours</span><span data-lang="ru">Часы</span></h2>
+        <ul class="footer__list">
+          <li><span data-lang="en">Daily 09:00 — 01:00</span><span data-lang="ru">Ежедневно 09:00 — 01:00</span></li>
+          <li><span data-lang="en">Kitchen closes 00:30</span><span data-lang="ru">Кухня закрывается в 00:30</span></li>
+          <li><span data-lang="en">Live oud, Fridays from 20:00</span><span data-lang="ru">Живой уд, по пятницам с 20:00</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Contact</span><span data-lang="ru">Контакты</span></h2>
+        <ul class="footer__list">
+          <li><a href="tel:+62811000000">+62 811 000 000</a></li>
+          <li><a href="mailto:hello@silk.bali">hello@silk.bali</a></li>
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <a class="footer__map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+          <div class="pattern pattern--on-dark pattern--hairline" aria-hidden="true"></div>
+          <span>Jl. Subak Canggu No.&nbsp;12<br>Canggu, Bali 80361</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SILK Restaurant Group</p>
+      <div class="footer__legal">
+        <a href="contacts.html#legal"><span data-lang="en">Terms</span><span data-lang="ru">Условия</span></a>
+        <a href="contacts.html#legal"><span data-lang="en">Privacy</span><span data-lang="ru">Конфиденциальность</span></a>
+      </div>
+      <p>Canggu &middot; Bali</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="contacts.html#reserve"><span data-lang="en">Reserve</span><span data-lang="ru">Бронь</span></a>
+  <a href="tel:+62811000000"><span data-lang="en">Call</span><span data-lang="ru">Позвонить</span></a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

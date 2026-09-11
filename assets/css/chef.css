@@ -1,0 +1,113 @@
+/* ==========================================================================
+   SILK — The Chef
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Portrait hero — the picture holds one side, the name the other
+   -------------------------------------------------------------------------- */
+
+.chef-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  background-image: var(--grain), linear-gradient(160deg, #E9E2D7 0%, #E5DDCF 100%);
+  background-blend-mode: overlay, normal;
+}
+
+.chef-hero__figure { margin: 0; }
+
+.chef-hero__media {
+  height: 100%;
+  min-height: min(760px, 84vh);
+}
+
+/* Overscanned for parallax; settles in on load. */
+.chef-hero__media img {
+  scale: 1.1;
+  animation: silkSettle 2.6s var(--ease-out) both;
+}
+
+.chef-hero__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-y) var(--gutter);
+}
+
+.chef-hero__name { margin: var(--s-4) 0 var(--s-5); }
+
+.chef-hero__role {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--t-quote);
+  line-height: 1.34;
+  color: var(--copper-deep);
+  margin-bottom: var(--s-4);
+}
+
+@media (max-width: 900px) {
+  .chef-hero { grid-template-columns: minmax(0, 1fr); }
+  .chef-hero__media { min-height: 0; aspect-ratio: 4 / 5; }
+}
+
+/* --------------------------------------------------------------------------
+   Philosophy — one line, set as large as the page allows
+   -------------------------------------------------------------------------- */
+
+.chef-philosophy__inner { max-width: 56rem; }
+
+.chef-philosophy__quote {
+  margin-top: var(--s-5);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3rem);
+  line-height: 1.28;
+  color: var(--bone);
+}
+
+.chef-philosophy__quote cite {
+  display: block;
+  margin-top: var(--s-5);
+  font-family: var(--font-text);
+  font-style: normal;
+  font-size: var(--t-label);
+  font-weight: 400;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--copper-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Three kitchens
+   -------------------------------------------------------------------------- */
+
+.kitchens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-6);
+  counter-reset: kitchen;
+}
+
+.kitchen {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--copper);
+}
+
+.kitchen__place {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: var(--t-h3);
+  line-height: 1.1;
+  color: var(--teal);
+}
+
+.kitchen .eyebrow { display: block; margin: var(--s-2) 0 var(--s-3); }
+
+/* --------------------------------------------------------------------------
+   Closing
+   -------------------------------------------------------------------------- */
+
+.chef-closing { max-width: 46rem; }
+.chef-closing .h2 { margin-bottom: var(--s-5); }

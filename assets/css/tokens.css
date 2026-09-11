@@ -1,0 +1,125 @@
+/* ==========================================================================
+   SILK — Design tokens
+   The single source of truth for colour, type, space and pattern.
+   Mirrors docs/brand-system.md (v4). Change values here, nowhere else.
+   ========================================================================== */
+
+:root {
+  /* --- Colour: primary ground ------------------------------------------ */
+  --bone:            #EFE9E0;
+  --bone-light:      #F5F0E8;
+  --bone-shade:      #E6DED0;
+
+  /* --- Colour: banded punctuation --------------------------------------- */
+  --teal:            #0E3A37;
+  --teal-deep:       #0A2B29;
+  --teal-hover:      #10423D;
+
+  /* --- Colour: accent ---------------------------------------------------- */
+  --copper:          #B87446;
+  --copper-soft:     #C89A6E;
+  --copper-deep:     #8C4E28;
+
+  /* --- Colour: feature band ---------------------------------------------- */
+  --spice:           #523322;
+  --silk-sand:       #FFDACB;
+
+  /* --- Colour: utility --------------------------------------------------- */
+  --ink:             #4A443C;  /* body text on bone — never pure black      */
+  --jade:            #016C81;  /* focus rings and form underlines only      */
+  --alert:           #A1391D;  /* form errors on bone — brick, 5.6:1        */
+  --alert-on-dark:   #F2B49B;  /* form errors on teal — 8.6:1               */
+  --rule:            rgba(184, 116, 70, 0.34);
+  --rule-soft:       rgba(184, 116, 70, 0.18);
+  --rule-on-teal:    rgba(239, 233, 224, 0.22);
+
+  /* --- Colour: control edges ----------------------------------------------
+     Lines that mark something you can type into or press. Each clears 3:1
+     against every shade of its ground (WCAG 1.4.11); decorative rules above
+     stay soft. */
+  --line-ui:          #A47354;                    /* on bone, all shades   */
+  --line-ui-teal:     rgba(239, 233, 224, 0.45);  /* on teal               */
+  --line-ui-spice:    rgba(255, 218, 203, 0.50);  /* on spice              */
+  --line-ui-strong:   rgba(14, 58, 55, 0.58);     /* teal edge on bone     */
+
+  /* --- Colour: gradient stops ----------------------------------------------
+     Light pooling inside the dark bands. Stops, never grounds of their own. */
+  --teal-glow:       #1B5A53;
+  --spice-light:     #6A4430;
+  --spice-deep:      #3F2618;
+  --sand-blush:      #F0DCCB;  /* bone warmed toward silk sand            */
+  --copper-glow:     #E0A77C;  /* numerals on spice — 5.4:1              */
+  --copper-haze:     rgba(184, 116, 70, 0.16);
+  --sheen:           rgba(255, 250, 240, 0.20);  /* light across a dark button */
+  --sheen-warm:      rgba(184, 116, 70, 0.22);   /* light across a bone button */
+  --shadow-soft:     0 14px 34px -22px rgba(10, 43, 41, 0.45);
+  --shadow-deep:     0 30px 60px -40px rgba(0, 0, 0, 0.6);
+  --shadow-book:     0 26px 38px -24px rgba(0, 0, 0, 0.7);   /* a page lying on the table */
+  --fold:            rgba(74, 68, 60, 0.2);  /* paper curving into the spine */
+
+  /* --- Type families ------------------------------------------------------ */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-text:    "Oswald", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- Type scale --------------------------------------------------------
+     Display sizes are fluid: they shrink to the mobile end of the ramp
+     without a breakpoint. Ratios and line-heights follow the brand book. */
+  --t-hero:    clamp(3.75rem, 1.6rem + 9.2vw, 8.25rem);   /*  60 → 132 */
+  --t-h1:      clamp(2.75rem, 1.5rem + 5.4vw, 4.5rem);    /*  44 →  72 */
+  --t-h2:      clamp(2rem,   1.3rem + 3.0vw, 2.875rem);   /*  32 →  46 */
+  --t-h3:      clamp(1.5rem, 1.15rem + 1.5vw, 2rem);      /*  24 →  32 */
+  --t-quote:   clamp(1.375rem, 0.95rem + 1.8vw, 1.875rem);/*  22 →  30 */
+  --t-body:    1.03125rem;                                /*  16.5     */
+  --t-small:   0.84375rem;                                /*  13.5     */
+  --t-label:   0.78125rem;                                /*  12.5     */
+  --t-eyebrow: 0.65625rem;                                /*  10.5     */
+
+  --lh-hero:  0.92;
+  --lh-h1:    1.02;
+  --lh-h2:    1.14;
+  --lh-quote: 1.42;
+  --lh-body:  1.75;
+
+  --ls-label:   0.20em;
+  --ls-eyebrow: 0.34em;
+  --ls-nav:     0.18em;
+
+  /* --- Space scale (4px baseline) ---------------------------------------- */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:  12px;
+  --s-4:  20px;
+  --s-5:  32px;
+  --s-6:  52px;
+  --s-7:  84px;
+  --s-8: 136px;
+
+  /* --- Page rhythm -------------------------------------------------------- */
+  --gutter:      clamp(24px, 8.8vw, 128px);
+  --section-y:   clamp(54px, 8vw, 132px);
+  --measure:     640px;   /* a column never exceeds this */
+  --max-page:   1440px;
+
+  /* --- Pattern: three scales only ---------------------------------------- */
+  --pattern-structural: 160px;
+  --pattern-field:       64px;
+  --pattern-hairline:    34px;
+
+  /* --- Motion -------------------------------------------------------------- */
+  --ease:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);     /* long, soft landings  */
+  --dur-fast:  0.22s;
+  --dur:       0.4s;
+  --dur-slow:  1.4s;
+  --dur-reveal: 1.1s;
+  --dur-page:  0.9s;    /* one page turn — menu-viewer.js mirrors it      */
+  --stagger:   90ms;    /* delay between siblings revealed together      */
+  --rise:      28px;    /* how far a revealed element travels            */
+
+  /* --- Depth ---------------------------------------------------------------- */
+  --gild: drop-shadow(0 0 0.8px rgba(214, 178, 106, 0.95))
+          drop-shadow(0 0 2.5px rgba(193, 150, 69, 0.42));
+  --z-nav:      100;
+  --z-mobilenav: 200;
+  --z-lightbox: 300;
+}

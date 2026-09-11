@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Brand system — SILK</title>
+  <meta name="description" content="SILK brand system v4: typography, pattern, buttons, colour, lockups and spacing, rendered with the live site stylesheets.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <style>
+    /* ======================================================================
+       Specimen chrome. This stylesheet exists only for this page — it styles
+       the scaffolding around the specimens, never the specimens themselves.
+       Everything being demonstrated is drawn by the real site stylesheets.
+       ====================================================================== */
+
+    .spec-nav {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-nav);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--s-4);
+      padding: var(--s-3) var(--gutter);
+      background: var(--teal-deep);
+      border-bottom: 1px solid var(--rule-on-teal);
+      font-size: var(--t-eyebrow);
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .spec-nav a { color: var(--copper-soft); }
+    .spec-nav a:hover { color: var(--bone); }
+    .spec-nav__home { margin-left: auto; color: var(--bone); }
+
+    .spec-masthead { padding: var(--section-y) var(--gutter); position: relative; overflow: hidden; }
+    .spec-masthead__marks { display: flex; align-items: center; gap: var(--s-4); margin-bottom: var(--s-5); }
+    .spec-masthead__sun { width: 44px; }
+    .spec-masthead__word { width: 150px; }
+    .spec-masthead .body { max-width: 46rem; margin-top: var(--s-4); }
+
+    .spec { padding: var(--section-y) var(--gutter); position: relative; overflow: hidden; }
+    .spec__inner { max-width: var(--max-page); margin-inline: auto; position: relative; z-index: 1; }
+
+    .spec__head {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s-4);
+      margin-bottom: var(--s-6);
+      padding-bottom: var(--s-3);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .ground--teal .spec__head { border-bottom-color: var(--rule-on-teal); }
+
+    .spec__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--s-6);
+    }
+
+    /* A labelled specimen cell. */
+    .cell__label {
+      display: block;
+      margin-top: var(--s-3);
+      font-size: var(--t-eyebrow);
+      font-weight: 500;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--copper-deep);
+    }
+
+    .ground--teal .cell__label,
+    .ground--spice .cell__label { color: var(--copper-soft); }
+
+    /* Type scale table */
+    .scale-row {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) 190px;
+      gap: var(--s-4);
+      align-items: baseline;
+      padding: var(--s-4) 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .scale-row__role,
+    .scale-row__spec {
+      font-size: var(--t-eyebrow);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+    }
+
+    .scale-row__spec { text-align: right; }
+
+    @media (max-width: 700px) {
+      .scale-row { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); }
+      .scale-row__spec { text-align: left; }
+    }
+
+    /* Colour swatches */
+    .swatch { border: 1px solid var(--rule); }
+    .swatch__chip { height: 128px; }
+    .swatch__body { padding: var(--s-3) var(--s-4) var(--s-4); background: var(--bone-light); }
+    .swatch__name { font-family: var(--font-display); font-style: italic; font-size: 1.375rem; color: var(--teal); }
+    .swatch__hex { margin-top: var(--s-1); font-size: var(--t-small); color: var(--ink); }
+    .swatch__use { margin-top: var(--s-2); font-size: var(--t-small); color: var(--ink); opacity: 0.8; }
+
+    /* Pattern specimens */
+    .tile { position: relative; height: 190px; border: 1px solid var(--rule); overflow: hidden; background: var(--bone); }
+    .tile--teal { background: var(--teal); border-color: var(--rule-on-teal); }
+    .tile--spice { background: var(--spice); border-color: rgba(255,218,203,0.3); }
+    .tile .pattern { opacity: 1; }
+    .tile--soft .pattern { opacity: 0.16; }
+    .tile__over {
+      position: absolute; inset: 0; display: grid; place-items: center; padding: var(--s-4);
+      font-size: var(--t-small); text-align: center; color: var(--ink);
+    }
+
+    /* Do / don't */
+    .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s-6); margin-top: var(--s-6); }
+    .rule-card { padding-top: var(--s-3); border-top: 2px solid var(--copper); }
+    .rule-card--dont { border-top-color: var(--ink); }
+    .rule-card h3 { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--teal); margin-bottom: var(--s-3); }
+
+    /* Spacing ramp */
+    .ramp { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s-4); }
+    .ramp__step { text-align: center; }
+    .ramp__bar { width: 40px; background: var(--copper); }
+    .ramp__n { display: block; margin-top: var(--s-2); font-size: var(--t-eyebrow); letter-spacing: 0.14em; color: var(--copper-deep); }
+
+    /* Retired */
+    .retired { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--s-5); }
+    .retired__card { padding: var(--s-4); border: 1px solid var(--rule); background: var(--bone-shade); }
+    .retired__card h3 {
+      margin-bottom: var(--s-2);
+      font-size: var(--t-label); letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink); text-decoration: line-through; text-decoration-color: var(--copper);
+    }
+
+    .lockups { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s-5); }
+    .lockup { display: grid; place-items: center; gap: var(--s-3); padding: var(--s-5); min-height: 190px; border: 1px solid var(--rule); }
+    .lockup--teal { background: var(--teal); border-color: var(--rule-on-teal); }
+    .lockup--spice { background: var(--spice); border-color: rgba(255,218,203,0.3); }
+    .lockup--bone { background: var(--bone-light); }
+    .lockup__row { display: flex; align-items: center; gap: var(--s-3); }
+  </style>
+</head>
+<body>
+<script src="../assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#typography">Skip to content</a>
+
+<nav class="spec-nav" aria-label="Sections">
+  <a href="#typography">01 Type</a>
+  <a href="#pattern">02 Pattern</a>
+  <a href="#buttons">03 Buttons</a>
+  <a href="#colour">04 Colour</a>
+  <a href="#lockups">05 Lockups</a>
+  <a href="#spacing">06 Spacing</a>
+  <a href="#retired">07 Retired</a>
+  <a class="spec-nav__home" href="../index.html">&#8592; Back to the site</a>
+</nav>
+
+<!-- ===================== MASTHEAD ===================== -->
+<header class="spec-masthead ground">
+  <div class="pattern pattern--structural" aria-hidden="true" style="inset:-180px -140px auto auto;left:auto;bottom:auto;width:720px;height:720px;"></div>
+
+  <div class="section__inner">
+    <div class="spec-masthead__marks">
+      <svg class="mark mark--sun spec-masthead__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+      <svg class="mark mark--word spec-masthead__word" viewBox="0 0 180.03 142.78" role="img" aria-label="SILK Restaurant"><use href="#silk-word--0E3A37"></use></svg>
+    </div>
+
+    <p class="eyebrow">Brand system &middot; v4 &middot; typography &amp; pattern</p>
+    <h1 class="h1" style="margin-top:var(--s-4)">Middle Eastern &amp; Central Asian table — Canggu, Bali</h1>
+    <p class="body">Two voices and one motif carry the whole brand: Cormorant Garamond italic for everything expressive, Oswald for everything functional, and the eight-point square star for everything in between. The cusped cartouche, the scalloped pill and the sunburst dial are retired.</p>
+    <p class="small" style="margin-top:var(--s-4);color:var(--copper-deep)">Everything below is drawn by the live site stylesheets. If a specimen changes here, it has changed on the site.</p>
+  </div>
+</header>
+
+<!-- ===================== 01 TYPOGRAPHY ===================== -->
+<section class="spec ground--bone" id="typography">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">01</span>
+      <h2 class="h2">Typography</h2>
+    </div>
+
+    <div class="spec__grid" style="margin-bottom:var(--s-7)">
+      <div>
+        <p class="eyebrow">Display — expressive</p>
+        <p class="h1" style="margin:var(--s-3) 0">Cormorant</p>
+        <p class="body">Headlines, pull quotes, dish names, the one line per section that has to carry feeling.</p>
+        <p class="small" style="margin-top:var(--s-3)">Always italic, always 400 or 600, never below 24px, never for interface text. Set it large, give it room, and let the measure stay under 640px.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Text — functional</p>
+        <p style="margin:var(--s-3) 0;font-size:var(--t-h1);font-weight:300;letter-spacing:0.02em;color:var(--teal)">Oswald</p>
+        <p class="body">Body copy, navigation, labels, prices, captions, buttons. Condensed and quiet — it never competes with the display face.</p>
+        <p class="small" style="margin-top:var(--s-3)">300 for body, 400 for buttons and hard-working labels, 500 only for uppercase micro-labels under 12px. Cyrillic covered for RU.</p>
+      </div>
+    </div>
+
+    <!-- The house move: one display line, answered by tracked caps -->
+    <div style="margin-bottom:var(--s-7);padding-top:var(--s-5);border-top:1px solid var(--rule)">
+      <p class="eyebrow">Scale contrast &middot; the house move</p>
+      <p class="hero-type" style="margin:var(--s-4) 0">Fire &amp; rice</p>
+      <p class="eyebrow" style="letter-spacing:0.34em">Samarkand &nbsp;&middot;&nbsp; Beirut &nbsp;&middot;&nbsp; Tbilisi &nbsp;&middot;&nbsp; Canggu</p>
+      <p class="small" style="margin-top:var(--s-4);max-width:var(--measure)">One display line at 100px or more, answered by tracked caps at 10–11px. Nothing in between on a hero — the middle sizes belong to body copy, not to headlines.</p>
+    </div>
+
+    <!-- The scale -->
+    <div class="scale-row"><span class="scale-row__role">Hero</span><span class="hero-type">Long tables</span><span class="scale-row__spec">132 / 0.92 / italic 600</span></div>
+    <div class="scale-row"><span class="scale-row__role">H1</span><span class="h1">Fire, rice, long tables</span><span class="scale-row__spec">72 / 1.02 / italic 600</span></div>
+    <div class="scale-row"><span class="scale-row__role">H2</span><span class="h2">Two thousand years of borrowed recipes</span><span class="scale-row__spec">46 / 1.14 / italic 400</span></div>
+    <div class="scale-row"><span class="scale-row__role">Quote</span><span class="quote-type">&ldquo;Just try it.&rdquo;</span><span class="scale-row__spec">30 / 1.42 / italic 400</span></div>
+    <div class="scale-row"><span class="scale-row__role">Body</span><span class="body">Plov, shashlik and mangal kebabs from Samarkand to Beirut, cooked over coals.</span><span class="scale-row__spec">16.5 / 1.75 / 300</span></div>
+    <div class="scale-row"><span class="scale-row__role">Label</span><span class="label">Reservation</span><span class="scale-row__spec">12.5 / 400 / .20em</span></div>
+    <div class="scale-row"><span class="scale-row__role">Eyebrow</span><span class="eyebrow">01 — About</span><span class="scale-row__spec">10.5 / 500 / .34em</span></div>
+
+    <!-- Rhythm and ornament -->
+    <div class="spec__grid" style="margin-top:var(--s-7)">
+      <div>
+        <p class="eyebrow">Editorial rhythm</p>
+        <p class="body drop-cap" style="margin-top:var(--s-4)">Silk copy runs on a 4px baseline grid: body 16.5/28, small print 13.5/22, labels 12.5/20. A paragraph never exceeds 34 characters per em of measure, and a column never exceeds 640px. Set one drop cap per page at most — the opening paragraph of the longest story — and never inside a card.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Expressive detail</p>
+        <p style="margin:var(--s-4) 0 var(--s-1);font-family:var(--font-display);font-style:italic;font-size:2.5rem;color:var(--teal)">fi&nbsp; ffl&nbsp; st&nbsp; &amp;</p>
+        <span class="cell__label">Ligatures &amp; ampersand</span>
+        <p style="margin:var(--s-5) 0 var(--s-1)"><span class="chapter-numeral">01&nbsp; 02&nbsp; 03</span></p>
+        <span class="cell__label">Numerals as ornament</span>
+        <div class="dish" style="margin-top:var(--s-5);border-bottom:1px solid var(--rule-soft)">
+          <div class="dish__text"><span class="dish__name">Plov</span></div>
+          <span class="dish__price">180K</span>
+        </div>
+        <span class="cell__label">Menu pairing — italic name, Oswald price</span>
+        <p class="small" style="margin-top:var(--s-4)">Section numbers are set in the display italic in copper at 46–52px — they are ornament, not labels. Never letterspace the italic beyond 0.06em.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 PATTERN ===================== -->
+<section class="spec ground" id="pattern">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">02</span>
+      <h2 class="h2">Pattern &middot; eight-point square star</h2>
+    </div>
+
+    <p class="body" style="max-width:46rem;margin-bottom:var(--s-6)">A square and its 45&deg; twin, single-weight, no fill. Three scales only: <strong>160px structural</strong>, <strong>64px field</strong>, <strong>34px hairline</strong>. Copper on bone, copper soft on teal, silk sand on spice. One structural field per page; everywhere else it is texture under 20% and never behind body copy at full strength.</p>
+
+    <div class="spec__grid">
+      <div>
+        <div class="tile"><div class="pattern pattern--structural" aria-hidden="true"></div></div>
+        <span class="cell__label">160px &middot; structural, one per page</span>
+      </div>
+      <div>
+        <div class="tile"><div class="pattern" aria-hidden="true"></div></div>
+        <span class="cell__label">64px &middot; field, copper on bone</span>
+      </div>
+      <div>
+        <div class="tile tile--teal"><div class="pattern pattern--on-dark" aria-hidden="true"></div></div>
+        <span class="cell__label">64px &middot; bone linework on teal</span>
+      </div>
+      <div>
+        <div class="tile tile--soft">
+          <div class="pattern pattern--hairline" aria-hidden="true"></div>
+          <p class="tile__over">34px at 16% — safe behind body copy.</p>
+        </div>
+        <span class="cell__label">34px &middot; hairline texture</span>
+      </div>
+      <div>
+        <div class="tile tile--spice"><div class="pattern pattern--on-spice" aria-hidden="true"></div></div>
+        <span class="cell__label">64px &middot; silk sand on spice</span>
+      </div>
+      <div>
+        <div class="tile" style="height:auto;padding:calc((190px - 28px)/2) 0;border-inline:0">
+          <div class="pattern-band" aria-hidden="true"></div>
+        </div>
+        <span class="cell__label">Section divider — 28px band, 34px tile</span>
+      </div>
+    </div>
+
+    <div class="rules">
+      <div class="rule-card">
+        <h3>Do</h3>
+        <p class="body">Bleed the structural field off at least two edges. Let type sit on the pattern, never in a box on top of it. Align the tile to the page gutter so the lattice reads as architecture.</p>
+      </div>
+      <div class="rule-card rule-card--dont">
+        <h3>Don&rsquo;t</h3>
+        <p class="body">No second scale in the same section. No pattern inside a card, button or photo mask. No rotation, no gradient fills, no outline weights other than 0.7 / 1 / 1.6.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 BUTTONS ===================== -->
+<section class="spec ground--bone-shade" id="buttons">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">03</span>
+      <h2 class="h2">Buttons — block &amp; inset rule</h2>
+    </div>
+
+    <p class="body" style="max-width:46rem;margin-bottom:var(--s-6)">The scalloped pill is gone. A SILK button is a hard-edged block with a hairline rule set 4px inside its edge — a printed label, not a UI chip. Three ranks: <strong>filled</strong> for the one action per section, <strong>outlined</strong> for the alternative, <strong>ruled text</strong> for everything tertiary. Oswald 400, 12px, 0.2em, uppercase; minimum 56px tall.</p>
+
+    <div class="spec__grid">
+      <div>
+        <button class="btn btn--filled" type="button">Reserve a table</button>
+        <span class="cell__label">Filled &middot; primary on bone</span>
+      </div>
+      <div>
+        <button class="btn btn--outlined" type="button">Order delivery</button>
+        <span class="cell__label">Outlined &middot; secondary</span>
+      </div>
+      <div>
+        <a class="btn-text" href="#buttons">See the full menu <span aria-hidden="true">&#8594;</span></a>
+        <span class="cell__label">Ruled text &middot; tertiary</span>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--s-6);padding:var(--s-6);background:var(--teal)" class="ground--teal">
+      <div class="btn-row">
+        <button class="btn btn--filled" type="button">Book now</button>
+        <button class="btn btn--outlined" type="button">Enquire</button>
+        <span class="status">Open now &middot; until 01:00</span>
+      </div>
+      <span class="cell__label">On teal — bone fill, bone outline, and a status block that is not a button</span>
+    </div>
+
+    <div class="spec__grid" style="margin-top:var(--s-6)">
+      <div>
+        <div class="filters" role="group" aria-label="Filter example">
+          <button class="filter" type="button" aria-pressed="true">All</button>
+          <button class="filter" type="button" aria-pressed="false">Mangal</button>
+          <button class="filter" type="button" aria-pressed="false">Plov</button>
+        </div>
+        <span class="cell__label">Filters — 2px seam, no inset rule</span>
+      </div>
+      <div>
+        <label class="field">
+          <span class="field__label">Guests</span>
+          <input class="field__input" type="text" value="4" readonly>
+        </label>
+        <span class="cell__label">Field — underline only, jade on focus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 COLOUR ===================== -->
+<section class="spec ground" id="colour">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">04</span>
+      <h2 class="h2">Colour</h2>
+    </div>
+
+    <div class="spec__grid">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#EFE9E0;border-bottom:1px solid var(--rule)"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Bone</p>
+          <p class="swatch__hex">#EFE9E0 &middot; Light #F5F0E8 &middot; Shade #E6DED0</p>
+          <p class="swatch__use">Primary ground. Assume a section is bone unless there is a reason otherwise.</p>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#0E3A37"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Deep Teal</p>
+          <p class="swatch__hex">#0E3A37 &middot; Deep #0A2B29</p>
+          <p class="swatch__use">Banded punctuation. Full-width bands every two or three sections, the footer, filled CTAs, every heading on bone.</p>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#B87446"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Copper</p>
+          <p class="swatch__hex">#B87446 &middot; Soft #C89A6E &middot; Deep #8C4E28</p>
+          <p class="swatch__use">Accent. Pattern linework, eyebrows, numerals, rules. Never a ground, never body copy.</p>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#523322"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Leather Spice</p>
+          <p class="swatch__hex">#523322 &middot; text Silk Sand #FFDACB</p>
+          <p class="swatch__use">Feature band. One deep band per page, never adjacent to teal.</p>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#4A443C"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Ink</p>
+          <p class="swatch__hex">#4A443C</p>
+          <p class="swatch__use">Body text on bone. Never pure black.</p>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#016C81"></div>
+        <div class="swatch__body">
+          <p class="swatch__name">Jade Night</p>
+          <p class="swatch__hex">#016C81</p>
+          <p class="swatch__use">Focus states and form underlines only.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:var(--s-5);color:var(--copper-deep)">At most two grounds per page.</p>
+  </div>
+</section>
+
+<!-- ===================== 05 LOCKUPS ===================== -->
+<section class="spec ground--bone" id="lockups">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">05</span>
+      <h2 class="h2">Logo &amp; lockups</h2>
+    </div>
+
+    <p class="body" style="max-width:46rem;margin-bottom:var(--s-6)">The wordmark is artwork, never set type — no tracking, no italicising, no recolouring beyond the four approved fills. Clear space equals the height of the S on every side. Minimum width 96px for the lockup, 24px for the sun.</p>
+
+    <div class="lockups">
+      <div>
+        <div class="lockup lockup--bone">
+          <svg class="mark mark--word" viewBox="0 0 180.03 142.78" style="width:120px" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+        </div>
+        <span class="cell__label">Lockup — primary</span>
+      </div>
+      <div>
+        <div class="lockup lockup--bone">
+          <div class="lockup__row">
+            <svg class="mark mark--sun" viewBox="0 0 170.79 170.79" style="width:36px;color:var(--copper)" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+            <svg class="mark mark--word" viewBox="0 0 180.03 142.78" style="width:90px" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+          </div>
+        </div>
+        <span class="cell__label">Horizontal — sun + lockup</span>
+      </div>
+      <div>
+        <div class="lockup lockup--teal">
+          <svg class="mark mark--word" viewBox="0 0 180.03 142.78" style="width:120px" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <span class="cell__label">Reversed on teal</span>
+      </div>
+      <div>
+        <div class="lockup lockup--spice">
+          <svg class="mark mark--sun" viewBox="0 0 170.79 170.79" style="width:76px" aria-hidden="true"><use href="#silk-sun--FFDACB"></use></svg>
+        </div>
+        <span class="cell__label">Sun alone on spice</span>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:var(--s-5);max-width:46rem">The marks are injected as an SVG sprite by <code>assets/js/silk-marks.js</code>, loaded as the first element in <code>&lt;body&gt;</code>. Colour is baked per variant — inherited colour does not cross the <code>&lt;use&gt;</code> shadow boundary reliably.</p>
+  </div>
+</section>
+
+<!-- ===================== 06 SPACING ===================== -->
+<section class="spec ground" id="spacing">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">06</span>
+      <h2 class="h2">Spacing &amp; rhythm</h2>
+    </div>
+
+    <div class="ramp">
+      <div class="ramp__step"><div class="ramp__bar" style="height:4px"></div><span class="ramp__n">4</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:8px"></div><span class="ramp__n">8</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:12px"></div><span class="ramp__n">12</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:20px"></div><span class="ramp__n">20</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:32px"></div><span class="ramp__n">32</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:52px"></div><span class="ramp__n">52</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:84px"></div><span class="ramp__n">84</span></div>
+      <div class="ramp__step"><div class="ramp__bar" style="height:136px"></div><span class="ramp__n">136</span></div>
+    </div>
+
+    <p class="body" style="margin-top:var(--s-6);max-width:46rem">Page gutters 128 desktop / 24 mobile. Section padding 104–150 desktop, 44–54 mobile. One CTA per section; at most two grounds per page; one structural pattern field per page.</p>
+  </div>
+</section>
+
+<!-- ===================== 07 RETIRED ===================== -->
+<section class="spec ground--bone-shade" id="retired">
+  <div class="spec__inner">
+    <div class="spec__head">
+      <span class="chapter-numeral">07</span>
+      <h2 class="h2">Retired in v4</h2>
+    </div>
+
+    <div class="retired">
+      <div class="retired__card">
+        <h3>Cartouche shapes</h3>
+        <p class="small">silkTag, silkTagTall and silkBadge are removed everywhere. Containers, photo crops and labels are rectangular; the hairline and the pattern do the decorating.</p>
+      </div>
+      <div class="retired__card">
+        <h3>Scalloped pill</h3>
+        <p class="small">silkPill is replaced by the block button with its 4px inset rule. No rounded corners anywhere in the system.</p>
+      </div>
+      <div class="retired__card">
+        <h3>CSS sunburst &amp; letterspaced SILK</h3>
+        <p class="small">Both stand-ins are replaced by the real artwork: the drawn sun and the SILK RESTAURANT lockup.</p>
+      </div>
+      <div class="retired__card">
+        <h3>Interlaced star &amp; jade linework</h3>
+        <p class="small">The eight-point interlaced tile becomes the square star; Jade Night #016C81 stays for focus states and form underlines only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__bottom" style="border-top:0;padding-top:0">
+      <p>SILK brand system &middot; v4</p>
+      <div class="footer__legal">
+        <a href="brand-system.md">Written spec</a>
+        <a href="architecture.md">Architecture</a>
+        <a href="content.md">Content</a>
+        <a href="../index.html">Back to the site</a>
+      </div>
+      <p>&copy; 2026 SILK Restaurant Group</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

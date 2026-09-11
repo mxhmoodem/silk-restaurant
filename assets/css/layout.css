@@ -1,0 +1,377 @@
+/* ==========================================================================
+   SILK — Site chrome: navigation, language switch, footer, sticky action bar
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Navigation
+   -------------------------------------------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--gutter);
+  border-bottom: 1px solid var(--rule);
+  background-color: var(--bone-shade);
+  background-image: var(--grain), linear-gradient(180deg, var(--bone-shade) 0%, #E8E0D4 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--ink);
+  transition: translate 0.5s var(--ease-out), box-shadow var(--dur) var(--ease);
+}
+
+/* site.js marks the page once it scrolls: the bar lifts off the content,
+   tucks away on the way down and returns the moment you scroll back up. */
+.is-scrolled .nav { box-shadow: var(--shadow-soft); }
+.nav-tucked .nav { translate: 0 -100%; }
+
+/* Reading progress on the long-form article. */
+.nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--copper-deep), var(--copper));
+  transform-origin: 0 50%;
+  scale: var(--read, 0) 1;
+  pointer-events: none;
+}
+
+body:not([data-page="article"]) .nav::after { display: none; }
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.nav__brand:hover { color: inherit; }
+
+.nav__sun  { width: 30px; color: var(--copper); transition: rotate 1.6s var(--ease-out); }
+.nav__word { width: 53px; }
+
+.nav__brand:hover .nav__sun { rotate: 180deg; }
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 34px);
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+/* The underline grows out from the centre of the word. */
+.nav__links a {
+  color: var(--teal);
+  padding-bottom: 3px;
+  background-image: linear-gradient(var(--copper), var(--copper));
+  background-size: 0% 1px;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.45s var(--ease-out), color var(--dur) var(--ease);
+}
+
+.nav__links a:hover { background-size: 100% 1px; color: var(--copper-deep); }
+
+.nav__links a[aria-current="page"] {
+  background-size: 100% 1px;
+  color: var(--copper-deep);
+}
+
+.nav__aside {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.6vw, 24px);
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+.nav__divider {
+  width: 1px;
+  height: 14px;
+  background: var(--rule);
+}
+
+.nav__phone { color: var(--teal); letter-spacing: 0.1em; }
+
+/* Language switch --------------------------------------------------------- */
+
+.lang {
+  display: flex;
+  gap: var(--s-3);
+  font-size: var(--t-label);
+  letter-spacing: 0.14em;
+}
+
+.lang__btn {
+  padding-bottom: 2px;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.lang__btn[aria-pressed="true"] {
+  color: var(--teal);
+  border-bottom-color: var(--copper);
+}
+
+/* The copy that sits at the foot of the mobile menu. */
+.nav__lang { display: none; }
+
+/* Mobile burger ------------------------------------------------------------ */
+
+.nav__burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+}
+
+.nav__burger span,
+.nav__burger span::before,
+.nav__burger span::after {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--teal);
+  transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+
+.nav__burger span::before,
+.nav__burger span::after {
+  content: "";
+  position: relative;
+}
+
+.nav__burger span::before { top: -7px; }
+.nav__burger span::after  { top: 6px; }
+
+.nav__burger[aria-expanded="true"] span { background: transparent; }
+.nav__burger[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span::after  { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 1080px) {
+  .nav { padding-block: var(--s-3); }
+  .nav__burger { display: grid; }
+
+  /* The language switch moves into the panel, leaving the burger on the right. */
+  .nav__aside { display: none; }
+
+  .nav__lang {
+    display: flex;
+    gap: var(--s-5);
+    margin-top: var(--s-5);
+  }
+
+  .nav__lang .lang__btn { padding-block: var(--s-2); }
+
+  /* Hangs from the bottom edge of the sticky bar. (Absolute, not fixed: a
+     fixed panel resolves top: 100% against the viewport and opens off-screen.) */
+  .nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: var(--z-mobilenav);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--s-4) var(--gutter) var(--s-6);
+    background-image: var(--grain), linear-gradient(180deg, var(--bone-shade) 0%, #E8E0D4 100%);
+    background-blend-mode: overlay, normal;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1rem;
+    max-height: calc(100vh - 100%);
+    overflow-y: auto;
+  }
+
+  .nav__links[hidden] { display: none; }
+
+  .nav__links a {
+    width: 100%;
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    background-image: none;
+    transition: color var(--dur) var(--ease), padding-left var(--dur) var(--ease-out);
+  }
+
+  .nav__links a:hover { padding-left: var(--s-2); }
+  .nav__links a[aria-current="page"] { border-bottom-color: var(--copper); }
+
+  /* The panel drops in; each link follows a beat behind the last. */
+  .nav__links:not([hidden]) { animation: silkFadeUp 0.45s var(--ease-out) both; }
+  .nav__links:not([hidden]) a { animation: silkRise 0.6s var(--ease-out) both; }
+  .nav__links:not([hidden]) a:nth-child(2) { animation-delay: 40ms; }
+  .nav__links:not([hidden]) a:nth-child(3) { animation-delay: 80ms; }
+  .nav__links:not([hidden]) a:nth-child(4) { animation-delay: 120ms; }
+  .nav__links:not([hidden]) a:nth-child(5) { animation-delay: 160ms; }
+  .nav__links:not([hidden]) a:nth-child(6) { animation-delay: 200ms; }
+  .nav__links:not([hidden]) a:nth-child(7) { animation-delay: 240ms; }
+  .nav__links:not([hidden]) .nav__lang { animation: silkRise 0.6s var(--ease-out) 280ms both; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  padding: clamp(52px, 6vw, 96px) var(--gutter) var(--s-5);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__inner {
+  max-width: var(--max-page);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(120px, 1fr)) minmax(220px, 1.2fr);
+  gap: var(--s-6) var(--s-5);
+  padding-bottom: var(--s-6);
+  border-bottom: 1px solid var(--rule-on-teal);
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.footer__marks {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.footer__sun  { width: 32px; color: var(--copper-soft); }
+.footer__word { width: 96px; }
+
+.footer__tag {
+  font-size: var(--t-small);
+  letter-spacing: 0.08em;
+  color: var(--copper-soft);
+}
+
+.footer__heading {
+  margin-bottom: var(--s-4);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-soft);
+}
+
+.footer__list { display: flex; flex-direction: column; gap: var(--s-3); }
+
+.footer__list a,
+.footer__list li {
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  color: var(--bone);
+}
+
+.footer__list a {
+  display: inline-block;
+  transition: color var(--dur) var(--ease), translate var(--dur) var(--ease-out);
+}
+
+.footer__list a:hover { color: var(--copper-soft); translate: 4px 0; }
+
+/* An opaque plate, so the footer's field pattern does not show through and
+   stack a second scale under the hairline tile. */
+.footer__map {
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  margin-top: var(--s-5);
+  padding: var(--s-4);
+  text-align: center;
+  font-size: var(--t-small);
+  color: var(--copper-soft);
+  background-color: var(--teal-deep);
+  border: 1px solid var(--line-ui-teal);
+  position: relative;
+  overflow: hidden;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.footer__map:hover { color: var(--bone); border-color: var(--copper-soft); background-color: var(--teal); }
+.footer__map span { position: relative; z-index: 1; }
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-top: var(--s-4);
+  font-size: var(--t-small);
+  color: var(--copper-soft);
+}
+
+.footer__legal {
+  display: flex;
+  gap: var(--s-4);
+}
+
+.footer__legal a { color: var(--copper-soft); }
+.footer__legal a:hover { color: var(--bone); }
+
+@media (max-width: 960px) {
+  .footer__top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-5) var(--s-4);
+  }
+  .footer__brand,
+  .footer__map { grid-column: 1 / -1; }
+}
+
+@media (max-width: 520px) {
+  .footer__top { grid-template-columns: minmax(0, 1fr); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* --------------------------------------------------------------------------
+   Sticky action bar — mobile only
+   -------------------------------------------------------------------------- */
+
+.action-bar {
+  display: none;
+  position: fixed;
+  inset: auto 0 0;
+  z-index: var(--z-nav);
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--rule-on-teal);
+  background: var(--teal);
+}
+
+.action-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.action-bar a + a { border-left: 1px solid var(--rule-on-teal); }
+.action-bar a:first-child { background: var(--bone); color: var(--teal); }
+
+@media (max-width: 760px) {
+  .action-bar { display: grid; }
+  body { padding-bottom: 56px; }
+}

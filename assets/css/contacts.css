@@ -1,0 +1,156 @@
+/* ==========================================================================
+   SILK — Contacts
+   ========================================================================== */
+
+.contacts-head__wash {
+  inset: -180px -200px auto auto;
+  left: auto;
+  bottom: auto;
+  width: 760px;
+  height: 760px;
+}
+
+.contacts-head__title { margin-top: var(--s-4); }
+
+/* --------------------------------------------------------------------------
+   Details beside the map
+   -------------------------------------------------------------------------- */
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.contacts-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.contact-card {
+  padding: var(--s-5);
+  background: var(--bone-light);
+}
+
+.contact-card--wide { grid-column: 1 / -1; }
+
+.contact-card__label {
+  margin-bottom: var(--s-3);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+.contact-card__value {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.4;
+  color: var(--teal);
+}
+
+.contact-card__note { margin-top: var(--s-3); opacity: 0.8; }
+.contact-card .btn-text { margin-top: var(--s-4); }
+
+.hours > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: var(--t-small);
+}
+
+.hours > div:last-child { border-bottom: 0; }
+.hours dt { color: var(--ink); opacity: 0.8; }
+.hours dd { margin: 0; color: var(--teal); letter-spacing: 0.06em; }
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-5);
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* A static map plate. Swap for an embedded map when a key is available —
+   see docs/development.md. */
+.contacts-map {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  aspect-ratio: 4 / 5;
+  padding: var(--s-5);
+  overflow: hidden;
+  background: var(--bone-shade);
+  border: 1px solid var(--rule);
+  text-align: center;
+}
+
+.contacts-map__pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid var(--copper);
+  background: var(--bone-light);
+}
+
+.contacts-map__pin::after {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+}
+
+.contacts-map__label {
+  position: relative;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: var(--t-small);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .contacts-grid { grid-template-columns: minmax(0, 1fr); }
+  .contacts-map { aspect-ratio: 16 / 10; min-height: 0; }
+}
+
+@media (max-width: 560px) {
+  .contacts-cards { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Getting here / legal
+   -------------------------------------------------------------------------- */
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-6);
+}
+
+.notes-grid--two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.note-card {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--copper);
+}
+
+.note-card .h3 { margin-bottom: var(--s-3); }
+.note-card .btn-text { margin-top: var(--s-4); }

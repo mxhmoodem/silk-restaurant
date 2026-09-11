@@ -1,0 +1,190 @@
+/* ==========================================================================
+   SILK — Menu
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.menu-hero__wash {
+  inset: -180px -140px auto auto;
+  left: auto;
+  bottom: auto;
+  width: 760px;
+  height: 760px;
+}
+
+.menu-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+
+.menu-hero__title { margin: var(--s-4) 0 var(--s-5); }
+.menu-hero__note { margin-top: var(--s-4); color: var(--copper-deep); }
+
+.menu-hero__strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-3);
+}
+
+.menu-hero__strip .media:nth-child(2) { margin-top: var(--s-6); }
+.menu-hero__strip .media:nth-child(3) { margin-top: calc(var(--s-6) * 2); }
+
+@media (max-width: 900px) {
+  .menu-hero__inner { grid-template-columns: minmax(0, 1fr); }
+  .menu-hero__strip .media:nth-child(2),
+  .menu-hero__strip .media:nth-child(3) { margin-top: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   A course — heading rail, figures, and the dish list
+   -------------------------------------------------------------------------- */
+
+.menu-course__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  grid-template-areas:
+    "head   dishes"
+    "figures dishes";
+  gap: var(--s-6) clamp(32px, 5vw, 84px);
+  align-items: start;
+}
+
+.menu-course--flip .menu-course__inner {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-areas:
+    "dishes head"
+    "dishes figures";
+}
+
+.menu-course--band .menu-course__inner {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "head"
+    "figures"
+    "dishes";
+}
+
+.menu-course__head { grid-area: head; }
+.menu-course__head .chapter-numeral { display: block; }
+.menu-course__head .eyebrow { margin: var(--s-2) 0 var(--s-3); }
+.menu-course__lede { margin-top: var(--s-4); }
+
+.menu-course__head--wide { margin-bottom: var(--s-6); }
+
+.menu-course__figures {
+  grid-area: figures;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-3);
+}
+
+.menu-course__figures--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.dishes { grid-area: dishes; }
+
+@media (max-width: 900px) {
+  .menu-course__inner,
+  .menu-course--flip .menu-course__inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "figures"
+      "dishes";
+    gap: var(--s-5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Dish rows — italic name, Oswald price, hairline between
+   -------------------------------------------------------------------------- */
+
+.dish {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.dish:first-child { padding-top: 0; }
+.dish:last-child { border-bottom: 0; }
+
+.dish__text { min-width: 0; }
+
+.dish__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.24;
+  color: var(--teal);
+}
+
+.dish__note {
+  margin-top: var(--s-1);
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.82;
+}
+
+.dish__price {
+  flex-shrink: 0;
+  font-family: var(--font-text);
+  font-size: var(--t-label);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--copper-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.ground--teal .dish { border-bottom-color: var(--rule-on-teal); }
+.ground--teal .dish__name { color: var(--bone); }
+.ground--teal .dish__note { color: var(--bone); opacity: 0.72; }
+.ground--teal .dish__price { color: var(--copper-soft); }
+
+.ground--spice .dish { border-bottom-color: rgba(255, 218, 203, 0.22); }
+.ground--spice .dish__name { color: var(--silk-sand); }
+.ground--spice .dish__note { color: var(--silk-sand); opacity: 0.72; }
+.ground--spice .dish__price { color: var(--silk-sand); }
+
+/* --------------------------------------------------------------------------
+   Sides — a three-card grid, image over name and price
+   -------------------------------------------------------------------------- */
+
+.side-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s-5);
+}
+
+.side-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-top: var(--s-3);
+  margin-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+}
+
+.side-card .dish__name { font-size: 1.25rem; }
+
+/* --------------------------------------------------------------------------
+   Closing call to action
+   -------------------------------------------------------------------------- */
+
+.menu-cta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+}
+
+.menu-cta .h2 { margin-bottom: var(--s-2); }

@@ -1,0 +1,462 @@
+/* ==========================================================================
+   SILK — About: a five-chapter story
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.about-hero__wash {
+  inset: -220px auto auto -180px;
+  right: auto;
+  bottom: auto;
+  width: 900px;
+  height: 900px;
+}
+
+.about-hero__inner { max-width: 62rem; }
+.about-hero__title { margin: var(--s-4) 0 var(--s-5); }
+.about-hero__lede { font-size: 1.125rem; }
+
+/* --------------------------------------------------------------------------
+   Chapter index
+   -------------------------------------------------------------------------- */
+
+/* A contents page: five bone-light tiles seamed into one ruled panel on the
+   shaded band, so the row reads as a set of doors rather than a strip of
+   labels. Each tile fills with teal from the floor up on hover — the same
+   motion as an outlined button. */
+
+.chapter-index {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.chapter-index li { display: flex; }
+
+.chapter-index a {
+  --index-muted: var(--ink);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "n     arrow"
+    "title title"
+    "note  note";
+  align-content: start;
+  width: 100%;
+  padding: var(--s-5) var(--s-4);
+  background: var(--bone-light);
+  color: var(--teal);
+  transition: color var(--dur) var(--ease);
+}
+
+.chapter-index a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--teal-hover) 0%, var(--teal) 55%, var(--teal-deep) 100%);
+  transform-origin: 50% 100%;
+  scale: 1 0;
+  transition: scale 0.55s var(--ease-out);
+}
+
+.chapter-index a:hover {
+  --index-muted: color-mix(in srgb, var(--bone) 80%, var(--teal));
+  color: var(--bone);
+}
+
+.chapter-index a:hover::before { scale: 1 1; }
+.chapter-index a:focus-visible { outline-offset: -5px; }
+
+.chapter-index__n {
+  grid-area: n;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 1.6rem + 1.2vw, 2.75rem);
+  line-height: 1;
+  color: var(--copper);
+  transition: color var(--dur) var(--ease);
+}
+
+.chapter-index__arrow {
+  grid-area: arrow;
+  width: 12px;
+  height: 18px;
+  color: var(--copper);
+  transition: color var(--dur) var(--ease), translate var(--dur) var(--ease-out);
+}
+
+.chapter-index__title {
+  grid-area: title;
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-label);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.chapter-index__note {
+  grid-area: note;
+  margin-top: var(--s-2);
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--index-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+/* On the teal fill the accents step to copper soft — never copper on teal. */
+.chapter-index a:hover .chapter-index__n,
+.chapter-index a:hover .chapter-index__arrow { color: var(--copper-soft); }
+.chapter-index a:hover .chapter-index__arrow { translate: 0 4px; }
+.chapter-index a:hover .chapter-index__title { border-top-color: var(--rule-on-teal); }
+
+@media (max-width: 1180px) {
+  .chapter-index { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .chapter-index li { grid-column: span 2; }
+  .chapter-index li:nth-child(n + 4) { grid-column: span 3; }
+}
+
+/* On a phone the tiles become rows: numeral in the margin, title and note
+   beside it, the arrow at the far edge. */
+@media (max-width: 700px) {
+  .chapter-index { grid-template-columns: minmax(0, 1fr); }
+  .chapter-index li,
+  .chapter-index li:nth-child(n + 4) { grid-column: auto; }
+
+  .chapter-index a {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "n title arrow"
+      "n note  arrow";
+    align-items: baseline;
+    column-gap: var(--s-3);
+    padding: var(--s-4);
+  }
+
+  .chapter-index__n { font-size: 1.75rem; }
+  .chapter-index__arrow { align-self: center; }
+  .chapter-index__title { margin-top: 0; padding-top: 0; border-top: 0; }
+  .chapter-index__note { margin-top: var(--s-1); }
+}
+
+/* --------------------------------------------------------------------------
+   Chapter shell
+   -------------------------------------------------------------------------- */
+
+.chapter__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+}
+
+.chapter__rule {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: var(--copper);
+}
+
+/* Numeral, rule and eyebrow share one accent per ground, so a chapter opens
+   in a single colour: copper on bone, copper soft on teal (never copper —
+   it muddies to brown), copper glow on spice. */
+.ground--teal .chapter__rule { background: var(--copper-soft); }
+
+.ground--spice .chapter__rule { background: var(--copper-glow); }
+.ground--spice .chapter__head .eyebrow { color: var(--copper-glow); }
+
+.chapter__body { max-width: 46rem; }
+.chapter__body .h1 { margin-bottom: var(--s-5); }
+.chapter__body .body + .body { margin-top: var(--s-4); }
+
+/* --------------------------------------------------------------------------
+   The five carriers
+   One ruled panel, seamed like the chapter index. Six tracks let the five
+   cells settle as 3 + 2 on a tablet instead of stranding the last one.
+   -------------------------------------------------------------------------- */
+
+.carriers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: var(--s-7);
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  counter-reset: carrier;
+}
+
+.carrier {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5) var(--s-4) var(--s-5);
+  background: var(--bone-light);
+}
+
+.carrier::before {
+  counter-increment: carrier;
+  content: counter(carrier, decimal-leading-zero);
+  content: counter(carrier, decimal-leading-zero) / "";
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.125rem;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--copper);
+}
+
+.carrier__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.625rem;
+  line-height: 1.15;
+  color: var(--teal);
+}
+
+@media (max-width: 1180px) {
+  .carriers { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .carrier { grid-column: span 2; }
+  .carrier:nth-child(n + 4) { grid-column: span 3; }
+}
+
+@media (max-width: 700px) {
+  .carriers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .carrier,
+  .carrier:nth-child(n + 4) { grid-column: auto; }
+  .carrier:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 460px) {
+  .carriers { grid-template-columns: minmax(0, 1fr); }
+  .carrier { padding: var(--s-4); }
+}
+
+/* --------------------------------------------------------------------------
+   Geography — two halves of one road
+   Each half sits on an opaque teal-deep plate, so the band's pattern frames
+   the lists instead of running through them.
+   -------------------------------------------------------------------------- */
+
+.geography {
+  --geo-muted: color-mix(in srgb, var(--bone) 80%, var(--teal));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+}
+
+.geography__half {
+  padding: clamp(24px, 3vw, 44px);
+  background-color: var(--teal-deep);
+  border: 1px solid var(--rule-on-teal);
+}
+
+.geography__title {
+  margin-bottom: var(--s-2);
+  padding-bottom: var(--s-4);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-soft);
+  border-bottom: 1px solid var(--copper-soft);
+}
+
+.geography__list > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.36fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule-on-teal);
+}
+
+.geography__list > div:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.geography__list dt {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.2;
+  color: var(--bone);
+}
+
+.geography__list dd {
+  margin: 0;
+  font-size: var(--t-small);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--geo-muted);
+}
+
+@media (max-width: 900px) {
+  .geography { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .geography__list > div { grid-template-columns: minmax(0, 1fr); gap: var(--s-1); }
+}
+
+/* --------------------------------------------------------------------------
+   The neo-modern position
+   -------------------------------------------------------------------------- */
+
+.positions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-6);
+  margin-top: var(--s-7);
+}
+
+.position {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--copper);
+}
+
+.position .h3 { margin: var(--s-3) 0; }
+
+/* --------------------------------------------------------------------------
+   The building
+   -------------------------------------------------------------------------- */
+
+.building {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 84px);
+  align-items: start;
+}
+
+.building__copy .h1 { margin-bottom: var(--s-5); }
+.building__copy .body + .body { margin-top: var(--s-4); }
+.building__source { margin-top: var(--s-3); color: var(--copper-deep); }
+
+.pull-quote {
+  margin-top: var(--s-6);
+  padding-left: var(--s-4);
+  border-left: 2px solid var(--copper);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-quote);
+  line-height: var(--lh-quote);
+  color: var(--teal);
+}
+
+.building__figure { margin: 0; }
+
+@media (max-width: 900px) {
+  .building { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   The mascot
+   -------------------------------------------------------------------------- */
+
+/* Two colours only on spice: silk sand for words (full, or a solid muted
+   tint — never opacity), copper glow for numerals and rules. */
+#chapter-5 {
+  --sand-muted: color-mix(in srgb, var(--silk-sand) 76%, var(--spice));
+  --rule-on-spice: color-mix(in srgb, var(--silk-sand) 22%, transparent);
+}
+
+.mascot {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 5vw, 84px);
+  align-items: start;
+}
+
+.mascot__figure { margin: 0; }
+
+.mascot__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule-on-spice);
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silk-sand);
+}
+
+.mascot__hours { color: var(--copper-glow); }
+
+.mascot__copy .h1 { margin-bottom: var(--s-5); }
+.mascot__copy .body + .body { margin-top: var(--s-4); }
+
+/* The five acts read as a merchant's ledger: numeral in the margin, the act
+   and its note beside it, one ruled line each. */
+.mascot__acts {
+  margin-top: var(--s-6);
+  border-top: 1px solid var(--copper-glow);
+}
+
+.mascot__acts > li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  column-gap: var(--s-4);
+  align-items: baseline;
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule-on-spice);
+}
+
+.mascot__n {
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--copper-glow);
+}
+
+.mascot__act {
+  margin-bottom: var(--s-1);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--silk-sand);
+}
+
+.mascot__acts .small { color: var(--sand-muted); }
+
+/* The photograph keeps pace with the ledger on a wide screen. `clip`, not
+   the section's `hidden`, so the band stops being a scroll container and
+   sticky has the page to work against; older browsers keep `hidden`. */
+@media (min-width: 901px) and (min-height: 760px) {
+  #chapter-5 { overflow: clip; }
+  .mascot__figure { position: sticky; top: 112px; }
+}
+
+@media (max-width: 900px) {
+  .mascot { grid-template-columns: minmax(0, 1fr); }
+  .mascot__figure { max-width: 520px; }
+}
+
+@media (max-width: 560px) {
+  .mascot__acts > li { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: var(--s-3); }
+}
+
+/* --------------------------------------------------------------------------
+   Closing
+   -------------------------------------------------------------------------- */
+
+.about-closing__inner { max-width: 46rem; }
+.about-closing .h2 { margin-bottom: var(--s-5); }

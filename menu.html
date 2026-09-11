@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Menu — SILK</title>
+  <meta name="description" content="Mezze, salads, dumplings, mangal, seafood, sides, coffee and cocktails. The full SILK menu, prices in IDR.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Menu — SILK">
+  <meta property="og:description" content="Mezze, salads, dumplings, mangal, seafood, sides, coffee and cocktails. The full SILK menu, prices in IDR.">
+  <meta property="og:image" content="assets/img/photos/hero.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+</head>
+<body data-page="menu">
+<script src="assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html" aria-label="SILK — home">
+    <svg class="mark mark--sun nav__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+    <svg class="mark mark--word nav__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+  </a>
+
+  <button class="nav__burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a>
+      <a href="menu.html" aria-current="page"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a>
+      <a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a>
+      <a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a>
+      <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a>
+      <a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a>
+      <a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a>
+      <div class="lang nav__lang" role="group" aria-label="Language">
+        <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+      </div>
+  </nav>
+
+  <div class="nav__aside">
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="nav__phone" href="tel:+62811000000">+62 811 000 000</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== HERO ===================== -->
+<section class="section ground menu-hero">
+  <div class="pattern pattern--structural menu-hero__wash" aria-hidden="true"></div>
+
+  <div class="section__inner menu-hero__inner">
+    <div class="menu-hero__copy">
+      <p class="eyebrow"><span data-lang="en">The full menu</span><span data-lang="ru">Полное меню</span></p>
+      <h1 class="hero-type menu-hero__title"><span data-lang="en">Fire, rice, <br>long tables</span><span data-lang="ru">Огонь, рис, <br>длинные столы</span></h1>
+      <p class="body"><span data-lang="en">Mezze first, then the mangal — plov, shashlik and dumplings from Samarkand to Beirut, cooked over coals. Everything is meant for the middle of the table.</span><span data-lang="ru">Сначала мезе, потом мангал — плов, шашлык и пельмени от Самарканда до Бейрута, приготовленные на углях. Всё рассчитано на середину стола.</span></p>
+      <p class="small menu-hero__note"><span data-lang="en">Prices in IDR, subject to 15% tax &amp; service.</span><span data-lang="ru">Цены в IDR, плюс 15% налог и сервис.</span></p>
+    </div>
+
+    <div class="menu-hero__strip">
+      <div class="media media--3x4"><img src="assets/img/photos/img6294-800.jpg" alt="A mezze spread laid across the table" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4"><img src="assets/img/photos/img5646-800.jpg" alt="Iced drinks on a wooden tray" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4"><img src="assets/img/photos/img6073-800.jpg" alt="A cocktail lit from behind by a brass lantern" loading="lazy" width="800" height="1200"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 01 MEZZE ===================== -->
+<section class="section ground--bone menu-course" id="mezze">
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">01</span>
+      <p class="eyebrow"><span data-lang="en">To start</span><span data-lang="ru">На старт</span></p>
+      <h2 class="h1">Mezze &amp; Small Plates</h2>
+    </header>
+
+    <div class="menu-course__figures">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5365-800.jpg" alt="Salad bowl with herbs and pomegranate" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6297-800.jpg" alt="A shared platter of dips and pickles" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Hummus, Confit Chickpeas &amp; Pickled Onion</h3><p class="dish__note">Warm chickpeas, olive oil, sumac</p></div>
+        <span class="dish__price">80K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Smoked Eggplant, Herbs &amp; Pomegranate</h3><p class="dish__note">Charred baba ganoush, parsley, edible flowers</p></div>
+        <span class="dish__price">90K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Whipped Feta, Dill &amp; Green Chili Oil</h3><p class="dish__note">Tzatziki-style, scallion</p></div>
+        <span class="dish__price">85K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Silk Carrot &amp; Tahini Spread</h3><p class="dish__note">Shredded carrot, cumin, herb oil</p></div>
+        <span class="dish__price">80K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Chocolate Tahini, Chili-Fig Jam &amp; Flatbread</h3><p class="dish__note">Toasted coconut, house tandoor bread</p></div>
+        <span class="dish__price">95K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Bread, Cheese &amp; Cured Plate</h3><p class="dish__note">Sesame bread, halloumi, cured beef, marinated peppers, date molasses</p></div>
+        <span class="dish__price">165K</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 02 SALADS ===================== -->
+<section class="section ground menu-course menu-course--flip" id="salads">
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">02</span>
+      <p class="eyebrow"><span data-lang="en">Fresh &amp; bright</span><span data-lang="ru">Свежее</span></p>
+      <h2 class="h1">Salads</h2>
+    </header>
+
+    <div class="menu-course__figures">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6236-800.jpg" alt="Grilled halloumi salad" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6218-800.jpg" alt="Chopped salad with broccoli and pomegranate" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Halloumi, Broccoli, Pomegranate &amp; Crispy Onion</h3><p class="dish__note">Chickpeas, green bean, mustard dressing</p></div>
+        <span class="dish__price">115K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Mango, Avocado &amp; Tiger Prawn</h3><p class="dish__note">Black sesame crumble, sun-dried tomato</p></div>
+        <span class="dish__price">135K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">SILK Caesar, Grilled Chicken &amp; Soft Egg</h3><p class="dish__note">Crisp lettuce, croutons, crispy shallot, radish</p></div>
+        <span class="dish__price">120K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Herb Tabbouleh, Walnuts &amp; Pomegranate</h3><p class="dish__note">Butter lettuce cups, toasted coconut</p></div>
+        <span class="dish__price">95K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Heirloom Tomato, Fennel &amp; Jalape&ntilde;o</h3><p class="dish__note">Shaved onion, herb oil</p></div>
+        <span class="dish__price">90K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Cucumber, Beetroot &amp; Herb Yogurt</h3><p class="dish__note">Dill, mint, coriander</p></div>
+        <span class="dish__price">85K</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 03 DUMPLINGS ===================== -->
+<section class="section ground--bone menu-course" id="dumplings">
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">03</span>
+      <p class="eyebrow"><span data-lang="en">Steamed &amp; seared</span><span data-lang="ru">На пару и на сковороде</span></p>
+      <h2 class="h1">Dumplings &amp; Dolma</h2>
+    </header>
+
+    <div class="menu-course__figures">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5735-800.jpg" alt="Steamer baskets of dumplings with yogurt" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5646-800.jpg" alt="Dumplings served with chili oil" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Lamb Manti, Herb Yogurt</h3><p class="dish__note">Hand-pleated, dill</p></div>
+        <span class="dish__price">110K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Beef &amp; Onion Dumplings, Chili Oil</h3><p class="dish__note">Steamed, scallion</p></div>
+        <span class="dish__price">110K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Wild Mushroom Dumplings, Dill Yogurt</h3><p class="dish__note">Steamed, olive oil</p></div>
+        <span class="dish__price">100K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Pan-Seared Gyoza, Scallion</h3><p class="dish__note">Crisp base, soy-chili dip</p></div>
+        <span class="dish__price">100K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Dolma, Grape Leaves &amp; Crispy Shallot</h3><p class="dish__note">Herb yogurt on the side</p></div>
+        <span class="dish__price">90K</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 04 MANGAL — the one teal band ===================== -->
+<section class="section ground--teal menu-course menu-course--band" id="mangal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">04</span>
+      <p class="eyebrow"><span data-lang="en">Over the coals</span><span data-lang="ru">На углях</span></p>
+      <h2 class="h1">From the Mangal</h2>
+      <p class="body menu-course__lede"><span data-lang="en">Served with flatbread, pickled onion and fire-charred vegetables.</span><span data-lang="ru">Подаётся с лепёшкой, маринованным луком и овощами с огня.</span></p>
+    </header>
+
+    <div class="menu-course__figures menu-course__figures--three">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6039-800.jpg" alt="Skewers resting on a carved board" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6042-800.jpg" alt="A mixed mangal platter" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5921-800.jpg" alt="Grilled meats served with flatbread" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Lamb Shashlik</h3></div><span class="dish__price">195K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Beef Shashlik</h3></div><span class="dish__price">185K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Chicken Thigh Skewer</h3></div><span class="dish__price">145K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Marinated Chicken Wings</h3></div><span class="dish__price">130K</span></li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Mixed Mangal Platter for Two</h3><p class="dish__note">Lamb, beef, chicken &amp; wings</p></div>
+        <span class="dish__price">380K</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 05 SEAFOOD & MAINS ===================== -->
+<section class="section ground menu-course menu-course--flip" id="mains">
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">05</span>
+      <p class="eyebrow"><span data-lang="en">Raw &amp; grilled</span><span data-lang="ru">Сырое и с огня</span></p>
+      <h2 class="h1">Seafood &amp; Mains</h2>
+    </header>
+
+    <div class="menu-course__figures">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6247-800.jpg" alt="Beef tartare with spiced fries" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5337-800.jpg" alt="Coffee served alongside the mains" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Beef Tartare, Cured Yolk &amp; Spiced Fries</h3><p class="dish__note">Pickled mustard seed, scallion</p></div>
+        <span class="dish__price">165K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">King Prawn &amp; Citrus Ceviche</h3><p class="dish__note">Chili oil, scallion</p></div>
+        <span class="dish__price">150K</span>
+      </li>
+      <li class="dish">
+        <div class="dish__text"><h3 class="dish__name">Charcoal-Grilled Tiger Prawns, Herb Oil</h3><p class="dish__note">Lemon, chimichurri</p></div>
+        <span class="dish__price">175K</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 06 SIDES ===================== -->
+<section class="section ground--bone-shade" id="sides">
+  <div class="section__inner">
+    <header class="menu-course__head menu-course__head--wide">
+      <span class="chapter-numeral">06</span>
+      <p class="eyebrow"><span data-lang="en">On the side</span><span data-lang="ru">Гарниры</span></p>
+      <h2 class="h1">Sides</h2>
+    </header>
+
+    <ul class="side-grid">
+      <li class="side-card">
+        <div class="media media--1x1 media--zoom"><img src="assets/img/photos/img6018-800.jpg" alt="Spiced fries with smoked mayo" loading="lazy" width="800" height="1200"></div>
+        <div class="side-card__row"><h3 class="dish__name">Spiced Fries, Smoked Mayo</h3><span class="dish__price">55K</span></div>
+      </li>
+      <li class="side-card">
+        <div class="media media--1x1 media--zoom"><img src="assets/img/photos/img6021-800.jpg" alt="Roasted baby potatoes with fennel" loading="lazy" width="800" height="1200"></div>
+        <div class="side-card__row"><h3 class="dish__name">Roasted Baby Potatoes, Fennel</h3><span class="dish__price">60K</span></div>
+      </li>
+      <li class="side-card">
+        <div class="media media--1x1 media--zoom"><img src="assets/img/photos/img6024-800.jpg" alt="Whipped potato with brown butter" loading="lazy" width="800" height="1200"></div>
+        <div class="side-card__row"><h3 class="dish__name">Whipped Potato, Brown Butter</h3><span class="dish__price">55K</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 07 HOT DRINKS ===================== -->
+<section class="section ground menu-course" id="hot-drinks">
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">07</span>
+      <p class="eyebrow"><span data-lang="en">Coffee &amp; tea</span><span data-lang="ru">Кофе и чай</span></p>
+      <h2 class="h1">Hot Drinks</h2>
+    </header>
+
+    <div class="menu-course__figures menu-course__figures--three">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5538-800.jpg" alt="A lavender latte on a tiled ledge" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5541-800.jpg" alt="Matcha latte in the afternoon light" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img5457-800.jpg" alt="A tray of dips and warm bread with tea" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Espresso / Americano</h3></div><span class="dish__price">35K / 40K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">SILK Signature Latte</h3></div><span class="dish__price">48K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Pistachio Latte</h3></div><span class="dish__price">55K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Matcha Latte</h3></div><span class="dish__price">55K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Moroccan Mint Tea</h3></div><span class="dish__price">45K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Spiced Hot Chocolate</h3></div><span class="dish__price">50K</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 08 BAR — the one spice band ===================== -->
+<section class="section ground--spice menu-course menu-course--band" id="bar">
+  <div class="pattern pattern--on-spice" aria-hidden="true"></div>
+
+  <div class="section__inner menu-course__inner">
+    <header class="menu-course__head">
+      <span class="chapter-numeral">08</span>
+      <p class="eyebrow"><span data-lang="en">Bar &amp; cold drinks</span><span data-lang="ru">Бар и холодные напитки</span></p>
+      <h2 class="h1">Cocktails &amp; Iced Drinks</h2>
+    </header>
+
+    <div class="menu-course__figures menu-course__figures--three">
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6079-800.jpg" alt="A green cocktail under a brass lantern" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6096-800.jpg" alt="A hibiscus highball catching the light" loading="lazy" width="800" height="1200"></div>
+      <div class="media media--3x4 media--zoom"><img src="assets/img/photos/img6090-800.jpg" alt="A citrus cocktail on the bar" loading="lazy" width="800" height="1200"></div>
+    </div>
+
+    <ul class="dishes">
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Sage Sour</h3></div><span class="dish__price">110K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Hibiscus Fizz</h3></div><span class="dish__price">105K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Fig Old Fashioned</h3></div><span class="dish__price">120K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Iced Spiced Coffee</h3></div><span class="dish__price">65K</span></li>
+      <li class="dish"><div class="dish__text"><h3 class="dish__name">Iced Cold Brew</h3></div><span class="dish__price">60K</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== RESERVE CTA ===================== -->
+<section class="section section--tight ground--blush menu-cta">
+  <div class="section__inner menu-cta__inner">
+    <div>
+      <h2 class="h2"><span data-lang="en">Ready for the table?</span><span data-lang="ru">Готовы сесть за стол?</span></h2>
+      <p class="small"><span data-lang="en">Same-day bookings by phone. Prices in IDR, subject to 15% tax &amp; service.</span><span data-lang="ru">Бронь на сегодня — по телефону. Цены в IDR, плюс 15% налог и сервис.</span></p>
+    </div>
+    <a class="btn btn--filled" href="contacts.html#reserve"><span data-lang="en">Reserve a table</span><span data-lang="ru">Забронировать</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__marks">
+          <svg class="mark mark--sun footer__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+          <svg class="mark mark--word footer__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <p class="footer__tag"><span data-lang="en">Silk Road kitchen, Bali</span><span data-lang="ru">Кухня шёлкового пути, Бали</span></p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Pages</span><span data-lang="ru">Страницы</span></h2>
+        <ul class="footer__list">
+          <li><a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a></li>
+          <li><a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a></li>
+          <li><a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a></li>
+          <li><a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">More</span><span data-lang="ru">Ещё</span></h2>
+        <ul class="footer__list">
+          <li><a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a></li>
+          <li><a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a></li>
+          <li><a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a></li>
+          <li><a href="docs/brand-system.html"><span data-lang="en">Brand system</span><span data-lang="ru">Бренд-система</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Hours</span><span data-lang="ru">Часы</span></h2>
+        <ul class="footer__list">
+          <li><span data-lang="en">Daily 09:00 — 01:00</span><span data-lang="ru">Ежедневно 09:00 — 01:00</span></li>
+          <li><span data-lang="en">Kitchen closes 00:30</span><span data-lang="ru">Кухня закрывается в 00:30</span></li>
+          <li><span data-lang="en">Live oud, Fridays from 20:00</span><span data-lang="ru">Живой уд, по пятницам с 20:00</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Contact</span><span data-lang="ru">Контакты</span></h2>
+        <ul class="footer__list">
+          <li><a href="tel:+62811000000">+62 811 000 000</a></li>
+          <li><a href="mailto:hello@silk.bali">hello@silk.bali</a></li>
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <a class="footer__map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+          <div class="pattern pattern--on-dark pattern--hairline" aria-hidden="true"></div>
+          <span>Jl. Subak Canggu No.&nbsp;12<br>Canggu, Bali 80361</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SILK Restaurant Group</p>
+      <div class="footer__legal">
+        <a href="contacts.html#legal"><span data-lang="en">Terms</span><span data-lang="ru">Условия</span></a>
+        <a href="contacts.html#legal"><span data-lang="en">Privacy</span><span data-lang="ru">Конфиденциальность</span></a>
+      </div>
+      <p>Canggu &middot; Bali</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="contacts.html#reserve"><span data-lang="en">Reserve</span><span data-lang="ru">Бронь</span></a>
+  <a href="tel:+62811000000"><span data-lang="en">Call</span><span data-lang="ru">Позвонить</span></a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

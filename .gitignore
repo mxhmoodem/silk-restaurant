@@ -1,0 +1,4 @@
+.vscode/
+
+# Full-resolution camera masters (2.3 GB) - kept locally, never served
+assets/img/originals/

@@ -1,0 +1,268 @@
+/* ==========================================================================
+   SILK — Gallery and lightbox
+   ========================================================================== */
+
+.gallery-head__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-5) clamp(32px, 5vw, 84px);
+  align-items: end;
+}
+
+.gallery-head__title { margin: var(--s-4) 0 var(--s-4); }
+
+.gallery-head__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s-3);
+}
+
+.gallery-head__count {
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+@media (max-width: 860px) {
+  .gallery-head__inner { grid-template-columns: minmax(0, 1fr); }
+  .gallery-head__aside { align-items: flex-start; }
+}
+
+/* --------------------------------------------------------------------------
+   The grid — a 12-column field the tiles span across
+   -------------------------------------------------------------------------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 116px;
+  gap: var(--s-3);
+}
+
+.gallery-tile {
+  grid-column: span var(--span, 4);
+  grid-row: span var(--rows, 2);
+  min-height: 0;
+}
+
+.gallery-tile__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: #123F3B;
+  border: 1px solid var(--rule-on-teal);
+}
+
+.gallery-tile__btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease), opacity var(--dur) var(--ease);
+}
+
+.gallery-tile__btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(10, 43, 41, 0) 46%,
+    rgba(10, 43, 41, 0.78) 100%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.gallery-tile__btn:hover img,
+.gallery-tile__btn:focus-visible img { transform: scale(1.05); }
+
+.gallery-tile__btn:hover::after,
+.gallery-tile__btn:focus-visible::after { opacity: 1; }
+
+.gallery-tile__caption {
+  position: absolute;
+  left: var(--s-3);
+  right: var(--s-3);
+  bottom: var(--s-3);
+  z-index: 1;
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--bone);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.gallery-tile__btn:hover .gallery-tile__caption,
+.gallery-tile__btn:focus-visible .gallery-tile__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--s-6);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule-on-teal);
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: 96px;
+  }
+  .gallery-tile { grid-column: span min(var(--span, 4), 6); }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 130px;
+  }
+  .gallery-tile { grid-column: span 1; grid-row: span 2; }
+  .gallery-tile__caption { opacity: 1; transform: none; }
+  .gallery-tile__btn::after { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Lightbox
+   -------------------------------------------------------------------------- */
+
+.lightbox[hidden] { display: none; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: grid;
+  place-items: center;
+  padding: var(--s-4);
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 26, 27, 0.94);
+  animation: silkFade 0.4s var(--ease) both;
+}
+
+.lightbox:not([hidden]) .lightbox__panel { animation: silkFadeUp 0.55s var(--ease-out) both; }
+
+/* gallery.js flags each new frame so it crossfades in rather than snapping. */
+.lightbox__figure img[data-entering] { animation: silkFade 0.5s var(--ease) both; }
+
+@keyframes silkFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(1100px, 100%);
+  max-height: 100%;
+  padding: var(--s-4);
+  background: var(--teal-deep);
+  border: 1px solid var(--rule-on-teal);
+  color: var(--bone);
+}
+
+.lightbox__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule-on-teal);
+}
+
+.lightbox__mark { width: 54px; }
+
+.lightbox__counter {
+  margin-left: auto;
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--copper-soft);
+}
+
+.lightbox__close {
+  width: 44px;
+  height: 44px;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--bone);
+}
+
+.lightbox__close { transition: color var(--dur) var(--ease), rotate var(--dur) var(--ease-out); }
+.lightbox__close:hover { color: var(--copper-soft); rotate: 90deg; }
+
+.lightbox__stage {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 0;
+  padding: var(--s-4) 0;
+}
+
+.lightbox__figure {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox__figure img {
+  max-width: 100%;
+  max-height: min(64vh, 720px);
+  object-fit: contain;
+}
+
+.lightbox__nav {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--bone);
+  border: 1px solid var(--line-ui-teal);
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.lightbox__nav:hover { background: var(--bone); color: var(--teal); border-color: var(--bone); }
+
+.lightbox__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule-on-teal);
+}
+
+.lightbox__caption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.375rem;
+  color: var(--bone);
+}
+
+.lightbox__cat {
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--copper-soft);
+}
+
+@media (max-width: 560px) {
+  .lightbox { padding: 0; }
+  .lightbox__panel { height: 100%; border: 0; }
+  .lightbox__nav { width: 40px; height: 40px; font-size: 1.375rem; }
+}

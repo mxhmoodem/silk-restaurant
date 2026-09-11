@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>About — SILK</title>
+  <meta name="description" content="The first Silk Road restaurant in Bali: the journey, the geography of flavours, the building, and the merchant who still works a stall in the room.">
+  <meta name="theme-color" content="#0E3A37">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — SILK">
+  <meta property="og:description" content="The first Silk Road restaurant in Bali: the journey, the geography of flavours, the building, and the merchant who still works a stall in the room.">
+  <meta property="og:image" content="assets/img/photos/hero.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+</head>
+<body data-page="about">
+<script src="assets/js/silk-marks.js"></script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html" aria-label="SILK — home">
+    <svg class="mark mark--sun nav__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--B87446"></use></svg>
+    <svg class="mark mark--word nav__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--0E3A37"></use></svg>
+  </a>
+
+  <button class="nav__burger" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+
+  <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="about.html" aria-current="page"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a>
+      <a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a>
+      <a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a>
+      <a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a>
+      <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a>
+      <a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a>
+      <a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a>
+      <div class="lang nav__lang" role="group" aria-label="Language">
+        <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+      </div>
+  </nav>
+
+  <div class="nav__aside">
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="nav__phone" href="tel:+62811000000">+62 811 000 000</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== HERO ===================== -->
+<section class="section ground about-hero">
+  <div class="pattern pattern--structural about-hero__wash" aria-hidden="true"></div>
+
+  <div class="section__inner about-hero__inner">
+    <p class="eyebrow"><span data-lang="en">About SILK &middot; Canggu, Bali</span><span data-lang="ru">О SILK &middot; Чангу, Бали</span></p>
+
+    <div data-lang="en">
+      <h1 class="hero-type about-hero__title">The first Silk Road <br>restaurant in Bali</h1>
+      <p class="body about-hero__lede">Not a cuisine you order — a journey you sit down inside. Five things carry it: atmosphere, ritual, aroma, fire, and the story told at your table.</p>
+    </div>
+    <div data-lang="ru">
+      <h1 class="hero-type about-hero__title">Первый ресторан <br>Великого шёлкового <br>пути на Бали</h1>
+      <p class="body about-hero__lede">Это не кухня, которую заказывают, — это путешествие, внутрь которого садятся. Его несут пять вещей: атмосфера, ритуал, аромат, огонь и история, рассказанная за вашим столом.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER INDEX ===================== -->
+<nav class="section section--tight ground--bone-shade" aria-label="Chapters">
+  <div class="section__inner">
+    <div class="section-mark">
+      <span class="section-mark__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">The story in five chapters</span><span data-lang="ru">История в пяти главах</span></p>
+    </div>
+
+    <ol class="chapter-index">
+      <li><a href="#chapter-1">
+        <span class="chapter-index__n">I</span>
+        <svg class="chapter-index__arrow" viewBox="0 0 12 18" aria-hidden="true"><path d="M6 1v15M1.5 11.5 6 16l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="chapter-index__title"><span data-lang="en">The Journey</span><span data-lang="ru">Путешествие</span></span>
+        <span class="chapter-index__note"><span data-lang="en">Atmosphere, ritual, aroma, fire, story</span><span data-lang="ru">Атмосфера, ритуал, аромат, огонь, история</span></span>
+      </a></li>
+      <li><a href="#chapter-2">
+        <span class="chapter-index__n">II</span>
+        <svg class="chapter-index__arrow" viewBox="0 0 12 18" aria-hidden="true"><path d="M6 1v15M1.5 11.5 6 16l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="chapter-index__title"><span data-lang="en">A Geography of Flavors</span><span data-lang="ru">География вкусов</span></span>
+        <span class="chapter-index__note"><span data-lang="en">The Middle East meets Central Asia</span><span data-lang="ru">Ближний Восток и Центральная Азия</span></span>
+      </a></li>
+      <li><a href="#chapter-3">
+        <span class="chapter-index__n">III</span>
+        <svg class="chapter-index__arrow" viewBox="0 0 12 18" aria-hidden="true"><path d="M6 1v15M1.5 11.5 6 16l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="chapter-index__title"><span data-lang="en">Neo-modern</span><span data-lang="ru">Нео-модерн</span></span>
+        <span class="chapter-index__note"><span data-lang="en">Old recipes, modern technique</span><span data-lang="ru">Старые рецепты, современная техника</span></span>
+      </a></li>
+      <li><a href="#chapter-4">
+        <span class="chapter-index__n">IV</span>
+        <svg class="chapter-index__arrow" viewBox="0 0 12 18" aria-hidden="true"><path d="M6 1v15M1.5 11.5 6 16l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="chapter-index__title"><span data-lang="en">The Building</span><span data-lang="ru">История дома</span></span>
+        <span class="chapter-index__note"><span data-lang="en">A merchant house, by legend</span><span data-lang="ru">Купеческий дом — по легенде</span></span>
+      </a></li>
+      <li><a href="#chapter-5">
+        <span class="chapter-index__n">V</span>
+        <svg class="chapter-index__arrow" viewBox="0 0 12 18" aria-hidden="true"><path d="M6 1v15M1.5 11.5 6 16l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="chapter-index__title"><span data-lang="en">The Merchant</span><span data-lang="ru">Торговец</span></span>
+        <span class="chapter-index__note"><span data-lang="en">A stall in the room, every evening</span><span data-lang="ru">Лавка в зале, каждый вечер</span></span>
+      </a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===================== CHAPTER 1 — THE JOURNEY ===================== -->
+<section class="section ground chapter" id="chapter-1">
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter-numeral">I</span>
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">The Journey</span><span data-lang="ru">Путешествие</span></p>
+    </header>
+
+    <div class="chapter__body reveal">
+      <div data-lang="en">
+        <h2 class="h1">A road you can taste in one evening</h2>
+        <p class="body drop-cap">The caravans moved slowly. A sack of rice left Fergana and arrived in Aleppo changed — cooked differently at every stop, renamed, argued over. SILK is built on that habit of borrowing.</p>
+        <p class="body">An evening here follows the same order the road did: you arrive to a room, you are given a ritual, you smell the fire before you see it, and someone tells you where the dish came from.</p>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">Путь, который можно попробовать за один вечер</h2>
+        <p class="body drop-cap">Караваны двигались медленно. Мешок риса выходил из Ферганы и приходил в Алеппо уже другим — его готовили иначе на каждой остановке, переименовывали и спорили о нём. SILK построен на этой привычке заимствовать.</p>
+        <p class="body">Вечер здесь идёт в том же порядке, что и дорога: сначала зал, потом ритуал, потом запах огня — раньше, чем вы его увидите, — и наконец кто-то рассказывает, откуда пришло блюдо.</p>
+      </div>
+    </div>
+
+    <!-- The five carriers -->
+    <ul class="carriers">
+      <li class="carrier">
+        <h3 class="carrier__name"><span data-lang="en">Atmosphere</span><span data-lang="ru">Атмосфера</span></h3>
+        <p class="small"><span data-lang="en">Low light, turquoise tile, tables long enough to lose track of time.</span><span data-lang="ru">Тёплый свет, бирюзовая плитка и столы, за которыми теряется счёт времени.</span></p>
+      </li>
+      <li class="carrier">
+        <h3 class="carrier__name"><span data-lang="en">Ritual</span><span data-lang="ru">Ритуал</span></h3>
+        <p class="small"><span data-lang="en">Bread torn by hand, tea poured three times, plov opened at the table.</span><span data-lang="ru">Хлеб, разломленный руками, чай, налитый трижды, плов, открытый у стола.</span></p>
+      </li>
+      <li class="carrier">
+        <h3 class="carrier__name"><span data-lang="en">Aroma</span><span data-lang="ru">Аромат</span></h3>
+        <p class="small"><span data-lang="en">Cumin, saffron, smoke and burnt sugar — the room announces the kitchen.</span><span data-lang="ru">Зира, шафран, дым и жжёный сахар — зал объявляет кухню раньше официанта.</span></p>
+      </li>
+      <li class="carrier">
+        <h3 class="carrier__name"><span data-lang="en">Fire</span><span data-lang="ru">Огонь</span></h3>
+        <p class="small"><span data-lang="en">Mangal, tandoor and kazan. Everything central is cooked over coals.</span><span data-lang="ru">Мангал, тандыр и казан. Всё главное готовится на угле.</span></p>
+      </li>
+      <li class="carrier">
+        <h3 class="carrier__name"><span data-lang="en">Storytelling</span><span data-lang="ru">Истории</span></h3>
+        <p class="small"><span data-lang="en">Every dish arrives with an origin. Ask, and you get the long version.</span><span data-lang="ru">У каждого блюда есть происхождение. Спросите — расскажут длинную версию.</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 — GEOGRAPHY ===================== -->
+<section class="section ground--teal chapter" id="chapter-2">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter-numeral">II</span>
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">A Geography of Flavors</span><span data-lang="ru">География вкусов</span></p>
+    </header>
+
+    <div class="chapter__body">
+      <div data-lang="en">
+        <h2 class="h1">Two halves of one road</h2>
+        <p class="body">The menu is drawn between the Middle East and Central Asia — the two ends that traded hardest with each other, and cooked most alike without admitting it.</p>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">Две половины одной дороги</h2>
+        <p class="body">Меню натянуто между Ближним Востоком и Центральной Азией — двумя концами пути, которые торговали друг с другом плотнее всех и готовили почти одинаково, не признавая этого.</p>
+      </div>
+    </div>
+
+    <div class="geography">
+      <div class="geography__half">
+        <h3 class="geography__title"><span data-lang="en">Middle East</span><span data-lang="ru">Ближний Восток</span></h3>
+        <dl class="geography__list">
+          <div><dt data-lang="en">Levant</dt><dt data-lang="ru">Левант</dt><dd data-lang="en">Mezze, labneh, muhammara, charcoal flatbread</dd><dd data-lang="ru">Мезе, лабне, мухаммара, лепёшки на угле</dd></div>
+          <div><dt data-lang="en">Anatolia</dt><dt data-lang="ru">Анатолия</dt><dd data-lang="en">Adana and shish kebabs, pide, ezme</dd><dd data-lang="ru">Кебаб адана и шиш, пиде, эзме</dd></div>
+          <div><dt data-lang="en">Persia</dt><dt data-lang="ru">Персия</dt><dd data-lang="en">Saffron rice, barberries, pomegranate stews</dd><dd data-lang="ru">Шафранный рис, барбарис, гранатовые тушения</dd></div>
+          <div><dt data-lang="en">Caucasus</dt><dt data-lang="ru">Кавказ</dt><dd data-lang="en">Bread from open fire, walnut sauces, herbs by the bunch</dd><dd data-lang="ru">Хлеб на открытом огне, ореховые соусы, зелень пучками</dd></div>
+        </dl>
+      </div>
+
+      <div class="geography__half">
+        <h3 class="geography__title"><span data-lang="en">Central Asia</span><span data-lang="ru">Центральная Азия</span></h3>
+        <dl class="geography__list">
+          <div><dt data-lang="en">Samarkand</dt><dt data-lang="ru">Самарканд</dt><dd data-lang="en">Plov in a cast-iron kazan, quince, yellow carrot</dd><dd data-lang="ru">Плов в чугунном казане, айва, жёлтая морковь</dd></div>
+          <div><dt data-lang="en">Bukhara</dt><dt data-lang="ru">Бухара</dt><dd data-lang="en">Samsa from the tandoor, lamb, black cumin</dd><dd data-lang="ru">Самса из тандыра, баранина, чёрная зира</dd></div>
+          <div><dt data-lang="en">Fergana</dt><dt data-lang="ru">Фергана</dt><dd data-lang="en">Devzira rice, hand-pulled lagman</dd><dd data-lang="ru">Рис девзира, лагман, тянутый руками</dd></div>
+          <div><dt data-lang="en">Steppe</dt><dt data-lang="ru">Степь</dt><dd data-lang="en">Smoked horse sausage, sour milk, boiled dough</dd><dd data-lang="ru">Копчёная казы, кислое молоко, отварное тесто</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 3 — NEO-MODERN ===================== -->
+<section class="section ground chapter" id="chapter-3">
+  <div class="section__inner">
+    <header class="chapter__head">
+      <span class="chapter-numeral">III</span>
+      <span class="chapter__rule" aria-hidden="true"></span>
+      <p class="eyebrow"><span data-lang="en">The Neo-modern Position</span><span data-lang="ru">Позиция нео-модерн</span></p>
+    </header>
+
+    <div class="chapter__body reveal">
+      <div data-lang="en">
+        <h2 class="h1">This is not an ethnic restaurant.</h2>
+        <p class="body">It is a neo-modern kitchen that happens to remember where it came from — traditional recipes, modern technique, contemporary presentation.</p>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">Это не этнический ресторан.</h2>
+        <p class="body">Это нео-модерн кухня, которая помнит, откуда пришла: традиционные рецепты, современная техника, актуальная подача.</p>
+      </div>
+    </div>
+
+    <ul class="positions">
+      <li class="position">
+        <p class="eyebrow"><span data-lang="en">Recipes</span><span data-lang="ru">Рецепты</span></p>
+        <h3 class="h3"><span data-lang="en">Traditional, unshortened</span><span data-lang="ru">Традиционные, без сокращений</span></h3>
+        <p class="small"><span data-lang="en">Plov still takes four hours. Dough is still rested overnight. Nothing is sped up to make service easier.</span><span data-lang="ru">Плов по-прежнему готовится четыре часа. Тесто по-прежнему отдыхает ночь. Ничего не ускоряется ради удобства сервиса.</span></p>
+      </li>
+      <li class="position">
+        <p class="eyebrow"><span data-lang="en">Technique</span><span data-lang="ru">Техника</span></p>
+        <h3 class="h3"><span data-lang="en">Modern, precise</span><span data-lang="ru">Современная, точная</span></h3>
+        <p class="small"><span data-lang="en">Controlled fermentation, exact temperatures, coal handled like an instrument rather than a habit.</span><span data-lang="ru">Контролируемая ферментация, точные температуры, уголь как инструмент, а не как привычка.</span></p>
+      </li>
+      <li class="position">
+        <p class="eyebrow"><span data-lang="en">Presentation</span><span data-lang="ru">Подача</span></p>
+        <h3 class="h3"><span data-lang="en">Contemporary, unfussy</span><span data-lang="ru">Актуальная, без суеты</span></h3>
+        <p class="small"><span data-lang="en">Plates that belong to now — no costumes, no folklore staging, no laminated flags.</span><span data-lang="ru">Тарелки, которые принадлежат сегодняшнему дню: без костюмов, без фольклорных постановок и ламинированных флагов.</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 — THE BUILDING ===================== -->
+<section class="section ground--bone-shade chapter" id="chapter-4">
+  <div class="section__inner building">
+    <div class="building__copy">
+      <header class="chapter__head">
+        <span class="chapter-numeral">IV</span>
+        <span class="chapter__rule" aria-hidden="true"></span>
+        <p class="eyebrow"><span data-lang="en">The History of the Building</span><span data-lang="ru">История дома</span></p>
+      </header>
+
+      <div data-lang="en">
+        <h2 class="h1">Legend says merchants <br>lived in this house</h2>
+        <p class="body">A family of Silk Road traders is said to have kept this address for generations. They dealt in cloth and spice, but what they really collected was everything that travelled alongside it.</p>
+        <p class="body">Recipes carried from a market three borders away. Goods nobody in town had names for. Knowledge traded for dinner. And stories — the currency that cost nothing and moved furthest.</p>
+        <p class="body">Whether or not it is true, it is the foundation the brand stands on. SILK behaves like that household: it gathers, it hosts, and it passes things on.</p>
+        <blockquote class="pull-quote">A house that collected recipes, goods, knowledge and stories — and still does.</blockquote>
+        <p class="small building__source">Legend, not record — told as it was told to us</p>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">По легенде в этом доме <br>жили купцы</h2>
+        <p class="body">Говорят, семья торговцев Великого шёлкового пути держала этот адрес несколько поколений. Они торговали тканью и специями, но собирали на самом деле всё, что шло вместе с ними.</p>
+        <p class="body">Рецепты, привезённые с базара за три границы. Товары, для которых в городе не было названий. Знания, обменянные на ужин. И истории — валюту, которая ничего не стоила и уходила дальше всех.</p>
+        <p class="body">Правда это или нет, но именно на этом стоит бренд. SILK ведёт себя как тот дом: собирает, принимает гостей и передаёт дальше.</p>
+        <blockquote class="pull-quote">Дом, который собирал рецепты, товары, знания и истории, — и продолжает собирать.</blockquote>
+        <p class="small building__source">Легенда, а не документ — рассказано так, как рассказали нам</p>
+      </div>
+    </div>
+
+    <figure class="building__figure">
+      <div class="media media--3x4">
+        <img src="assets/img/photos/img6680-800.jpg"
+             srcset="assets/img/photos/img6680-800.jpg 800w, assets/img/photos/img6680-1600.jpg 1600w"
+             sizes="(max-width: 900px) 100vw, 34vw"
+             alt="A lacquered box of spices and dried fruit, of the kind the house traded in" loading="lazy" width="800" height="1200">
+      </div>
+      <figcaption class="caption"><span data-lang="en">Spice, copper and cloth — the trade the house is named for</span><span data-lang="ru">Специи, медь и ткань — торговля, именем которой назван дом</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 — THE MASCOT ===================== -->
+<section class="section ground--spice chapter" id="chapter-5">
+  <div class="pattern pattern--on-spice" aria-hidden="true"></div>
+
+  <div class="section__inner mascot">
+    <figure class="mascot__figure">
+      <div class="media media--3x4">
+        <img src="assets/img/photos/img7009-800.jpg"
+             srcset="assets/img/photos/img7009-800.jpg 800w, assets/img/photos/img7009-1600.jpg 1600w"
+             sizes="(max-width: 900px) 100vw, 34vw"
+             alt="The merchant carrying a plate through the room" loading="lazy" width="800" height="1200">
+      </div>
+      <figcaption class="mascot__meta">
+        <span data-lang="en">The stall — inside the main room</span><span data-lang="ru">Лавка — в главном зале</span>
+        <span class="mascot__hours"><span data-lang="en">Every evening from 19:00</span><span data-lang="ru">Каждый вечер с 19:00</span></span>
+      </figcaption>
+    </figure>
+
+    <div class="mascot__copy">
+      <header class="chapter__head">
+        <span class="chapter-numeral">V</span>
+        <span class="chapter__rule" aria-hidden="true"></span>
+        <p class="eyebrow"><span data-lang="en">The Mascot</span><span data-lang="ru">Маскот</span></p>
+      </header>
+
+      <div data-lang="en">
+        <h2 class="h1">Meet the Merchant</h2>
+        <p class="body">He is not a costume by the door. He is a character who works a real stall inside the restaurant, every evening.</p>
+        <p class="body">The last descendant of the house, as the story goes — still trading, still collecting. He keeps his corner of the room stocked with spice, copper, cloth and things that need explaining. Guests come to him; he never sells to a table that didn't ask.</p>
+      </div>
+      <div data-lang="ru">
+        <h2 class="h1">Знакомьтесь: Торговец</h2>
+        <p class="body">Это не костюм у входа. Это персонаж, который каждый вечер работает за настоящей лавкой внутри ресторана.</p>
+        <p class="body">Последний потомок того дома, как рассказывает легенда, — всё ещё торгует, всё ещё собирает. В его углу зала специи, медь, ткань и вещи, которые требуют объяснения. Гости приходят к нему сами; он никогда не продаёт столу, который не спрашивал.</p>
+      </div>
+
+      <ol class="mascot__acts">
+        <li>
+          <span class="mascot__n">01</span>
+          <h3 class="mascot__act"><span data-lang="en">He tells legends</span><span data-lang="ru">Рассказывает легенды</span></h3>
+          <p class="small"><span data-lang="en">Short ones between courses, long ones if the evening allows it.</span><span data-lang="ru">Короткие — между блюдами, длинные — если вечер позволяет.</span></p>
+        </li>
+        <li>
+          <span class="mascot__n">02</span>
+          <h3 class="mascot__act"><span data-lang="en">He explains where dishes come from</span><span data-lang="ru">Объясняет, откуда блюда</span></h3>
+          <p class="small"><span data-lang="en">Which city, which century, which argument about the right way to cook it.</span><span data-lang="ru">Какой город, какой век и какой спор о правильном способе готовки.</span></p>
+        </li>
+        <li>
+          <span class="mascot__n">03</span>
+          <h3 class="mascot__act"><span data-lang="en">He brews coffee over sand</span><span data-lang="ru">Варит кофе на песке</span></h3>
+          <p class="small"><span data-lang="en">Cardamom, a copper pot, hot sand. It takes as long as it takes.</span><span data-lang="ru">Кардамон, медная джезва, горячий песок. Столько времени, сколько нужно.</span></p>
+        </li>
+        <li>
+          <span class="mascot__n">04</span>
+          <h3 class="mascot__act"><span data-lang="en">He leads mini-rituals</span><span data-lang="ru">Проводит мини-ритуалы</span></h3>
+          <p class="small"><span data-lang="en">Breaking bread, the third pour of tea, a wish spoken before plov is opened.</span><span data-lang="ru">Разлом хлеба, третья пиала чая, желание перед тем, как откроют плов.</span></p>
+        </li>
+        <li>
+          <span class="mascot__n">05</span>
+          <h3 class="mascot__act"><span data-lang="en">He photographs guests</span><span data-lang="ru">Фотографирует гостей</span></h3>
+          <p class="small"><span data-lang="en">On an old camera at the stall. The print is yours; the story stays with him.</span><span data-lang="ru">На старую камеру у лавки. Снимок — ваш, история остаётся у него.</span></p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="section section--tight ground--blush about-closing">
+  <div class="section__inner about-closing__inner">
+    <div data-lang="en">
+      <h2 class="h2">The kitchen behind all of it belongs to one person.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="chef.html">Meet the chef</a>
+        <a class="btn btn--outlined" href="gallery.html">Gallery</a>
+      </div>
+    </div>
+    <div data-lang="ru">
+      <h2 class="h2">За всем этим стоит кухня одного человека.</h2>
+      <div class="btn-row">
+        <a class="btn btn--filled" href="chef.html">О шефе</a>
+        <a class="btn btn--outlined" href="gallery.html">Галерея</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer ground--teal">
+  <div class="pattern pattern--on-dark" aria-hidden="true"></div>
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <div class="footer__marks">
+          <svg class="mark mark--sun footer__sun" viewBox="0 0 170.79 170.79" aria-hidden="true"><use href="#silk-sun--C89A6E"></use></svg>
+          <svg class="mark mark--word footer__word" viewBox="0 0 180.03 142.78" aria-hidden="true"><use href="#silk-word--EFE9E0"></use></svg>
+        </div>
+        <p class="footer__tag"><span data-lang="en">Silk Road kitchen, Bali</span><span data-lang="ru">Кухня шёлкового пути, Бали</span></p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Pages</span><span data-lang="ru">Страницы</span></h2>
+        <ul class="footer__list">
+          <li><a href="about.html"><span data-lang="en">About</span><span data-lang="ru">О нас</span></a></li>
+          <li><a href="menu.html"><span data-lang="en">Menu</span><span data-lang="ru">Меню</span></a></li>
+          <li><a href="chef.html"><span data-lang="en">Chef</span><span data-lang="ru">Шеф</span></a></li>
+          <li><a href="gallery.html"><span data-lang="en">Gallery</span><span data-lang="ru">Галерея</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">More</span><span data-lang="ru">Ещё</span></h2>
+        <ul class="footer__list">
+          <li><a href="blog.html"><span data-lang="en">Blog</span><span data-lang="ru">Блог</span></a></li>
+          <li><a href="reviews.html"><span data-lang="en">Reviews</span><span data-lang="ru">Отзывы</span></a></li>
+          <li><a href="contacts.html"><span data-lang="en">Contacts</span><span data-lang="ru">Контакты</span></a></li>
+          <li><a href="docs/brand-system.html"><span data-lang="en">Brand system</span><span data-lang="ru">Бренд-система</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Hours</span><span data-lang="ru">Часы</span></h2>
+        <ul class="footer__list">
+          <li><span data-lang="en">Daily 09:00 — 01:00</span><span data-lang="ru">Ежедневно 09:00 — 01:00</span></li>
+          <li><span data-lang="en">Kitchen closes 00:30</span><span data-lang="ru">Кухня закрывается в 00:30</span></li>
+          <li><span data-lang="en">Live oud, Fridays from 20:00</span><span data-lang="ru">Живой уд, по пятницам с 20:00</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading"><span data-lang="en">Contact</span><span data-lang="ru">Контакты</span></h2>
+        <ul class="footer__list">
+          <li><a href="tel:+62811000000">+62 811 000 000</a></li>
+          <li><a href="mailto:hello@silk.bali">hello@silk.bali</a></li>
+          <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/62811000000" rel="noopener">WhatsApp</a></li>
+        </ul>
+        <a class="footer__map" href="https://maps.google.com/?q=Jl.+Subak+Canggu+No.+12,+Canggu,+Badung,+Bali+80361" rel="noopener">
+          <div class="pattern pattern--on-dark pattern--hairline" aria-hidden="true"></div>
+          <span>Jl. Subak Canggu No.&nbsp;12<br>Canggu, Bali 80361</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SILK Restaurant Group</p>
+      <div class="footer__legal">
+        <a href="contacts.html#legal"><span data-lang="en">Terms</span><span data-lang="ru">Условия</span></a>
+        <a href="contacts.html#legal"><span data-lang="en">Privacy</span><span data-lang="ru">Конфиденциальность</span></a>
+      </div>
+      <p>Canggu &middot; Bali</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="contacts.html#reserve"><span data-lang="en">Reserve</span><span data-lang="ru">Бронь</span></a>
+  <a href="tel:+62811000000"><span data-lang="en">Call</span><span data-lang="ru">Позвонить</span></a>
+</nav>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
